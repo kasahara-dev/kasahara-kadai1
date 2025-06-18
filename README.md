@@ -1,51 +1,37 @@
 ## アプリケーション名
 
-ここにアプリの名前を記載
+お問い合わせフォーム
 
 ## 環境構築
 
-1. Docker の設定
-   <br>
-   下記コマンドを実行
-   <br>
-   `docker-compose up -d --build`
+### Docker ビルド
 
-2. Laravel のインストール
-   <br>
-   下記コマンドを実行
-   <br>
+1.  `git clone git@github.com:kasahara-dev/kasahara-kadai1.git`
+2.  `docker-compose up -d --build`
+    <br>
+    [!IMPORTANT]
+    MySQL は、OS によって起動しない場合があるのでそれぞれの PC に合わせて docker-compose.yml ファイルを編集してください。
 
-   ```
-   docker-compose exec php bash
-   composer install
-   ```
+### Laravel 環境構築
 
-3. .env ファイルの作成
-   <br>
-   下記コマンドを実行
-   <br>
+1. `docker-compose exec php bash`
+2. `composer install`
+3. .env.example ファイルから.env を作成し、環境変数を変更
+4. `php artisan key:generate`
+5. `php artisan migrate`
+6. `php artisan db:seed`
 
-   ```
-    cp .env.example .env
-    exit
-   ```
+## 使用技術
 
-   <br>
-   .env ファイル 11 行目以降を下記に修正
-   <br>
-   .env ファイル
-
-   ```
-   //前略
-   DB_CONNECTION=mysql
-   DB_HOST=mysql
-   DB_PORT=3306
-   DB_DATABASE=laravel_db
-   DB_USERNAME=[ユーザー名]
-   DB_PASSWORD=[パスワード]
-   //後略
-   ```
+- PHP 8.0
+- Laravel 10.0
+- MySQL 8.0
 
 ## ER 図
 
 ![ER図](ER.drawio.png)
+
+## URL
+
+- 開発環境:http://localhost/
+- phpMyAdmin:http://localhost:8080/
