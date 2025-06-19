@@ -25,7 +25,7 @@ class ContactFactory extends Factory
             'tel' => $this->faker->phoneNumber(),
             'address' => $this->faker->streetAddress(),
             'building' => $this->faker->optional()->secondaryAddress,
-            'detail' => $this->faker->realText()
+            'detail' => $this->faker->realText(rand(10, 120))
         ];
     }
 }
