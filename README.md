@@ -8,9 +8,9 @@
 
 1.  `git clone git@github.com:kasahara-dev/kasahara-kadai1.git`
 2.  `docker-compose up -d --build`
-    <br>
-    > [!IMPORTANT]
-    > MySQL は、OS によって起動しない場合があるのでそれぞれの PC に合わせて docker-compose.yml ファイルを編集してください。
+
+> [!IMPORTANT]
+> MySQL は、OS によって起動しない場合があるのでそれぞれの PC に合わせて docker-compose.yml ファイルを編集してください。
 
 ### Laravel 環境構築
 
