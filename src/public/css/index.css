@@ -1,23 +1,23 @@
-.form-area {
+.form__area {
     max-width: 1300px;
     padding: 0 20px;
     margin: 0 auto 120px;
 }
-.form-area .form__title {
+.form__area .form__title {
     border-bottom: solid 1px #1f1f1f;
     font-weight: 500;
     padding-bottom: 30px;
     text-align: center;
 }
-.form-area dl {
+.form__area dl {
     margin-bottom: 40px;
 }
-.form-area .item {
+.form__area .item {
     display: flex;
     font-size: 15px;
     margin-bottom: 10px;
 }
-.form-area .item dt {
+.form__area .item dt {
     width: 250px;
     display: flex;
     align-items: center;
@@ -25,42 +25,42 @@
     background-color: #f5f5f5;
     padding: 60px 20px;
 }
-.form-area .item dt .require {
+.form__area .item dt .require {
     color: #df4440;
     font-size: 10px;
     font-weight: 500;
     padding: 2px 5px;
 }
-.form-area .item dd {
+.form__area .item dd {
     width: calc(100% - 250px);
     display: flex;
     align-items: center;
     padding: 0 40px;
 }
-.form-area .item dd.name__group,
-.form-area .item dd.gender__group {
+.form__area .item dd.name__group,
+.form__area .item dd.gender__group {
     display: flex;
     align-items: center;
 }
-.form-area .item dd .gender__item {
+.form__area .item dd .gender__item {
     margin-right: 40px;
 }
-.form-area .item dd input [type="text"],
-.form-area .item dd input [type="textarea"],
-.form-area .item dd select {
+.form__area .item dd input [type="text"],
+.form__area .item dd input [type="textarea"],
+.form__area .item dd select {
     width: 100%;
     border: solid 1px #ccc;
     padding: 20px;
 }
-.form-area .item dd input[type="radio"] {
+.form__area .item dd input[type="radio"] {
     margin-right: 5px;
 }
-.form-area .item dd textarea {
+.form__area .item dd textarea {
     width: 100%;
     border: solid 1px #ccc;
     padding: 20px;
 }
-.form-area .btn__submit {
+.form__area .btn__submit {
     width: 100px;
     height: 40px;
     background-color: #1f1f1f;
