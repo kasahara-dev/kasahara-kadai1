@@ -23,6 +23,8 @@ Route::get('/confirm', [ContactController::class, 'confirmed']);
 Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
 Route::post('/thanks', [ContactController::class, 'complete']);
 Route::get('/register', [UserController::class, 'signUp']);
-// Route::post('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'login']);
-Route::get('/admin', [UserController::class, 'admin']);
+Route::post('/register', [UserController::class, 'signCheck']);
+// Route::get('/login', [UserController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [UserController::class, 'admin']);
+});

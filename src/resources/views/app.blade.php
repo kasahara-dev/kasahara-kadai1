@@ -13,13 +13,13 @@
 
 <body>
     <header class="wrapper">
-        @section('header')
         <div class="header">
+            @section('header')
             <a class="header__logo" href="/">
                 FashionablyLate
             </a>
+            @show
         </div>
-        @show
     </header>
     <main class="wrapper">
         @yield('content')
