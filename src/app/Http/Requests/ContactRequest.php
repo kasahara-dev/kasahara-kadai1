@@ -43,6 +43,7 @@ class ContactRequest extends FormRequest
             'last_name.required' => '姓を入力してください',
             'gender.required' => '性別を選択してください',
             'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスはメール形式で入力してください',
             'tel1.required' => '電話番号を入力してください',
             'tel1.integer' => '電話番号は5桁までの数字で入力してください',
             'tel1.digits_between' => '電話番号は5桁までの数字で入力してください',
