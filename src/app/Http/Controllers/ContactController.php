@@ -14,6 +14,10 @@ class ContactController extends Controller
         $categories = Category::all();
         return view('index', compact('categories'));
     }
+    public function revised()
+    {
+        return redirect('index')->withInput();
+    }
     public function confirmed(ContactRequest $request)
     {
         $category = Category::find($request->category_id);

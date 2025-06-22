@@ -18,9 +18,10 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [ContactController::class, 'index']);
+Route::post('/', [ContactController::class, 'revised'])->name('.revise');
 Route::get('/confirm', [ContactController::class, 'confirmed']);
 // Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
+// Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
 Route::post('/thanks', [ContactController::class, 'complete']);
 Route::get('/register', [UserController::class, 'signUp']);
 Route::post('/register', [UserController::class, 'signCheck']);
