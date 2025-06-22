@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 
@@ -13,42 +14,31 @@ class ContactController extends Controller
         $categories = Category::all();
         return view('index', compact('categories'));
     }
-    public function confirmed(Request $request)
+    public function confirmed(ContactRequest $request)
     {
-        $form = $request->all();
-        return view('confirm', $form);
-    }
-    public function confirm(ContactRequest $request)
-    {
-        // $first_name = $request->first_name;
-        // $last_name = $request->last_name;
-        // $tel1 = $request->tel1;
-        // $tel2 = $request->tel2;
-        // $tel3 = $request->tel3;
-        // $email = $request->email;
-        // $gender = $request->gender;
-        // $address = $request->address;
-        // $building = $request->building;
-        // $category_id = $request->category_id;
-        // $detail = $request->detail;
         $category = Category::find($request->category_id);
-
         $form = $request->all();
         $form = $form + array('tel' => $request->tel1 . $request->tel2 . $request->tel3);
         $form = $form + array('category_name' => $category->content);
-
-        return redirect('confirm')->with($form);
+        return view('confirm', compact('form'));
     }
+    // public function confirm(ContactRequest $request)
+    // {
+    //     $category = Category::find($request->category_id);
+    //     $form = $request->all();
+    //     $form = $form + array('tel' => $request->tel1 . $request->tel2 . $request->tel3);
+    //     $form = $form + array('category_name' => $category->content);
+    //     return redirect('confirm')->with(compact('form'));
+    // }
     public function completed(Request $request)
     {
         $form = $request->all();
-        return redirect('/')->with($form);
+        return redirect('/')->with(compact('form'));
     }
     public function complete(Request $request)
     {
         $form = $request->all();
-        dd($form);
-
-        return redirect('confirm')->with($form);
+        Contact::create($form);
+        return view('thanks', compact('form'));
     }
 }

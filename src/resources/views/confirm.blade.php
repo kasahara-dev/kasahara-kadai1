@@ -6,14 +6,16 @@
 
 @section('content')
     <div class="confirm__area">
+
         <p class="form__title">Confirm</p>
+
         <dl>
             <div class="item">
                 <dt>
                     <label for="kind">お名前</label>
                 </dt>
                 <dd class="name__group">
-                    <div class="name__item">{{ session('last_name') . '　' . session('first_name')}}</div>
+                    <div class="name__item">{{ $form['last_name'] . '　' . $form['first_name']}}</div>
                 </dd>
             </div>
             <div class="item">
@@ -22,9 +24,9 @@
                 </dt>
                 <dd class="gender__group">
                     <div class="gender__item">
-                        @if(session('gender') == '1')
+                        @if($form['gender'] == '1')
                             {{ config('gender.1') }}
-                        @elseif(session('gender') == '2')
+                        @elseif($form['gender'] == '2')
                             {{ config('gender.2') }}
                         @else
                             {{ config('gender.3') }}
@@ -37,7 +39,7 @@
                     <label for="kind">メールアドレス</label>
                 </dt>
                 <dd class="email__group">
-                    <div class="email__item">{{ session('email') }}</div>
+                    <div class="email__item">{{ $form['email'] }}</div>
                 </dd>
             </div>
             <div class="item">
@@ -45,7 +47,7 @@
                     <label for="kind">電話番号</label>
                 </dt>
                 <dd class="tel__group">
-                    <div class="tel__item">{{ session('tel') }}</div>
+                    <div class="tel__item">{{ $form['tel'] }}</div>
                 </dd>
             </div>
             <div class="item">
@@ -53,7 +55,7 @@
                     <label for="kind">住所</label>
                 </dt>
                 <dd class="address__group">
-                    <div class="address__item">{{ session('address') }}</div>
+                    <div class="address__item">{{ $form['address'] }}</div>
                 </dd>
             </div>
             <div class="item">
@@ -61,7 +63,7 @@
                     <label for="kind">建物名</label>
                 </dt>
                 <dd class="building__group">
-                    <div class="building__item">{{ session('building') }}</div>
+                    <div class="building__item">{{ $form['building'] }}</div>
                 </dd>
             </div>
             <div class="item">
@@ -69,7 +71,7 @@
                     <label for="kind">お問い合わせの種類</label>
                 </dt>
                 <dd class="category__group">
-                    <div class="category__item">{{ session('category_name') }}</div>
+                    <div class="category__item">{{ $form['category_name'] }}</div>
                 </dd>
             </div>
             <div class="item">
@@ -77,37 +79,25 @@
                     <label for="kind">お問い合わせ内容</label><span class="require">※</span>
                 </dt>
                 <dd class="detail__group">
-                    <div class="detail__item">{{ session('detail') }}</div>
+                    <div class="detail__item">{{ $form['detail'] }}</div>
                 </dd>
             </div>
         </dl>
-        <div class="button__area">
-            <form class="form" action="/confirm" method="get">
-                <input type="hidden" name="first_name" value="{{ session('first_name') }}">
-                <input type="hidden" name="last_name" value="{{ session('last_name') }}">
-                <input type="hidden" name="gender" value="{{ session('gender') }}">
-                <input type="hidden" name="tel" value="{{ session('tel') }}">
-                <input type="hidden" name="email" value="{{ session('email') }}">
-                <input type="hidden" name="address" value="{{ session('address') }}">
-                <input type="hidden" name="building" value="{{ session('building') }}">
-                <input type="hidden" name="category_id" value="{{ session('category_id') }}">
-                <input type="hidden" name="detail" value="{{ session('detail') }}">
+        <form class="form" action="/thanks" method="post">
+            @csrf
+            <div class="button__area">
+                <input type="hidden" name="first_name" value="{{ $form['first_name'] }}" />
+                <input type="hidden" name="last_name" value="{{ $form['last_name'] }}" />
+                <input type="hidden" name="gender" value="{{ $form['gender'] }}" />
+                <input type="hidden" name="tel" value="{{ $form['tel'] }}" />
+                <input type="hidden" name="email" value="{{ $form['email'] }}" />
+                <input type="hidden" name="address" value="{{ $form['address'] }}" />
+                <input type="hidden" name="building" value="{{ $form['building'] }}" />
+                <input type="hidden" name="category_id" value="{{ $form['category_id'] }}" />
+                <input type="hidden" name="detail" value="{{ $form['detail'] }}" />
                 <button type="submit" class="btn__submit" name="send">送信</button>
-                <a class="link__back" name="revise" href="{{ route('.revise', [
-        'revise' => true,
-        'first_name' => session('first_name'),
-        'last_name' => session('last_name'),
-        'gender' => session('gender'),
-        'tel1' => session('tel1'),
-        'tel2' => session('tel2'),
-        'tel3' => session('tel3'),
-        'email' => session('email'),
-        'address' => session('address'),
-        'building' => session('building'),
-        'category_id' => session('category_id'),
-        'detail' => session('detail')
-    ]) }}">修正</a>
-            </form>
-        </div>
+                <a class="link__back" name="revise" href="{{ route('.revise', ['revise' => true,'first_name' => $form['first_name'],'last_name' => $form['last_name'],'gender' => $form['gender'],'tel1' => $form['tel1'],'tel2' => $form['tel2'],'tel3' => $form['tel3'],'email' => $form['email'],'address' => $form['address'],'building' => $form['building'],'category_id' => $form['category_id'],'detail' => $form['detail']]) }}">修正</a>
+            </div>
+        </form>
     </div>
 @endsection
