@@ -11,40 +11,15 @@ use App\Models\Contact;
 
 class UserController extends Controller
 {
-    public function signUp()
-    {
-        return view('.auth.register');
-    }
-    public function signCheck(UserRequest $request)
-    {
-        $form = $request->all();
-        User::create([
-            'name' => $form['name'],
-            'email' => $form['email'],
-            'password' => Hash::make($form['password']),
-        ]);
-        return redirect('/admin');
-    }
-    public function login()
-    {
-        return view('auth.login');
-    }
-    public function loginCheck(UserRequest $request)
-    {
-
-        return redirect('/login');
-    }
     public function admin()
     {
         $categories = Category::all();
         $contacts = Contact::all();
         return view('.auth.admin', compact('categories', 'contacts'));
     }
-    public function contactsSearch()
-    {
-        $categories = Category::all();
-
-
-        return view('.auth.admin', compact('categories'));
-    }
+    // public function contactsSearch()
+    // {
+    //     $categories = Category::all();
+    //     return view('.auth.admin', compact('categories'));
+    // }
 }

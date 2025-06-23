@@ -19,15 +19,9 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [ContactController::class, 'index']);
 Route::get('/confirm', [ContactController::class, 'confirmed']);
-// Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
 Route::post('/thanks', [ContactController::class, 'complete']);
-// Route::get('/register', [UserController::class, 'signUp']);
-// Route::post('/register', [UserController::class, 'signCheck']);
-// Route::get('/login', [UserController::class, 'login']);
-// Route::post('/login', [UserController::class, 'loginCheck']);
 Route::middleware('auth')->group(function () {
-    // Route::get('/register', [UserController::class, 'signUp']);
     Route::get('/admin', [UserController::class, 'admin']);
     // Route::post('/admin', [UserController::class, 'contactsSearch']);
 });

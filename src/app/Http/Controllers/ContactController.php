@@ -22,14 +22,6 @@ class ContactController extends Controller
         $form = $form + array('category_name' => $category->content);
         return view('confirm', compact('form'));
     }
-    // public function confirm(ContactRequest $request)
-    // {
-    //     $category = Category::find($request->category_id);
-    //     $form = $request->all();
-    //     $form = $form + array('tel' => $request->tel1 . $request->tel2 . $request->tel3);
-    //     $form = $form + array('category_name' => $category->content);
-    //     return redirect('confirm')->with(compact('form'));
-    // }
     public function completed(Request $request)
     {
         $form = $request->all();
