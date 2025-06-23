@@ -7,7 +7,7 @@
 @section('header')
     @parent
     <a class="login__link" href="/login">
-        ログイン
+        login
     </a>
 @endsection
 
@@ -55,7 +55,7 @@
                         <div class="password__item">
                             <input type="text" name="password" placeholder="例：coachtech1106"
                                 value="{{ old('password') }}" />
-                            @error('email')
+                            @error('password')
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
