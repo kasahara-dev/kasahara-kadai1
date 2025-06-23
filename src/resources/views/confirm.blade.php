@@ -89,10 +89,6 @@
                 <input type="hidden" name="first_name" value="{{ $form['first_name'] }}" />
                 <input type="hidden" name="last_name" value="{{ $form['last_name'] }}" />
                 <input type="hidden" name="gender" value="{{ $form['gender'] }}" />
-                <input type="hidden" name="tel1" value="{{ $form['tel1'] }}" />
-                <input type="hidden" name="tel2" value="{{ $form['tel2'] }}" />
-                <input type="hidden" name="tel3" value="{{ $form['tel3'] }}" />
-
                 <input type="hidden" name="tel" value="{{ $form['tel'] }}" />
                 <input type="hidden" name="email" value="{{ $form['email'] }}" />
                 <input type="hidden" name="address" value="{{ $form['address'] }}" />
@@ -100,7 +96,7 @@
                 <input type="hidden" name="category_id" value="{{ $form['category_id'] }}" />
                 <input type="hidden" name="detail" value="{{ $form['detail'] }}" />
                 <button type="submit" class="btn__submit" name="send">送信</button>
-                <a class="link__back" name="revise" href="{{ route('.revise') }}">修正</a>
+                <a class="link__back" name="revise" href="{{ route('.revise', ['revise' => true,'first_name' => $form['first_name'],'last_name' => $form['last_name'],'gender' => $form['gender'],'tel1' => $form['tel1'],'tel2' => $form['tel2'],'tel3' => $form['tel3'],'email' => $form['email'],'address' => $form['address'],'building' => $form['building'],'category_id' => $form['category_id'],'detail' => $form['detail']]) }}">修正</a>
             </div>
         </form>
     </div>
