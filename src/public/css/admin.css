@@ -1,3 +1,9 @@
 .conditions__area {
     display: flex;
 }
+.searched__list,
+th,
+td {
+    border: solid;
+    border-color: black;
+}

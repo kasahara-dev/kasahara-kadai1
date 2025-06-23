@@ -22,4 +22,18 @@ class UserController extends Controller
     //     $categories = Category::all();
     //     return view('.auth.admin', compact('categories'));
     // }
+    public function show($id)
+    {
+        $contact = Contact::find($id);
+
+        return view('auth.show', compact('contact'));
+    }
+    public function delete()
+    {
+        // $contact = Contact::find($id);
+        $categories = Category::all();
+        $contacts = Contact::all();
+        return view('.auth.admin', compact('categories', 'contacts'));
+
+    }
 }
