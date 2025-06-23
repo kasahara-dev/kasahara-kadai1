@@ -29,4 +29,5 @@ Route::post('/thanks', [ContactController::class, 'complete']);
 Route::middleware('auth')->group(function () {
     // Route::get('/register', [UserController::class, 'signUp']);
     Route::get('/admin', [UserController::class, 'admin']);
+    // Route::post('/admin', [UserController::class, 'contactsSearch']);
 });

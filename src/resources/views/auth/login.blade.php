@@ -6,31 +6,16 @@
 
 @section('header')
     @parent
-    <a class="login__link" href="/login">
-        ログイン
+    <a class="register__link" href="/register">
+        register
     </a>
 @endsection
 
 @section('content')
     <div class="form__area">
-        <p class="form__title">Register</p>
-        <form class="form" action="/register" method="post">
+        <p class="form__title">Login</p>
+        <form class="form" action="/login" method="post">
             @csrf
-            <dl>
-                <div class="item">
-                    <dt>
-                        <label for="kind">お名前</label>
-                    </dt>
-                    <dd class="name__group">
-                        <div class="name__item">
-                            <input type="text" name="name" placeholder="例：山田　太郎" value="{{ old('name') }}" />
-                            @error('name')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </dd>
-                </div>
-            </dl>
             <dl>
                 <div class="item">
                     <dt>
@@ -62,7 +47,7 @@
                     </dd>
                 </div>
             </dl>
-            <button type="submit" class="btn__submit" name="send">登録</button>
+            <button type="submit" class="btn__submit" name="send">ログイン</button>
         </form>
     </div>
 @endsection
