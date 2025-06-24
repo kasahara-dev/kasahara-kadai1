@@ -4,6 +4,7 @@ var modal = document.getElementById("modal");
 var btn = document.getElementById("openDetail");
 // モーダルを閉じるアイコン（×）を取得
 var span = document.getElementById("closeModal");
+const value = element.contactID.value;
 
 // ボタンがクリックされた時にモーダルを表示
 btn.onclick = function () {

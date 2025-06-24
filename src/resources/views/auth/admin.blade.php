@@ -69,7 +69,7 @@
                     <td>{{ $contact->category->content }}</td>
                     <td><button id="openDetail" class="button__detail">詳細</button></td>
                 </tr>
-                <div id="modal" class="modal__area">
+                <div id="modal" class="modal__area" data-contactId="{{ $contact->id }}">
                     <div id="modalDisplay" class="modal__body">
                         <div class="modal__table">
                             <dl>
