@@ -20,7 +20,7 @@
                                     <search>
                                         <form class="form" action="/admin" method="get">
                                             @csrf
-                                            <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('last_name') }}" />
+                                            <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}" />
                                             @php
     $gender_check = old('gender');
     if (is_null($gender_check)) {
@@ -57,7 +57,7 @@
                                 <div class="searched__area">
                                     <div class="searched__option">
                                         <button type="button">エクスポート</button>
-                                        <div class="pages">{{ $contacts->links('vendor.pagination.bootstrap-4') }}</div>
+                                        <div class="pages">{{ $contacts->appends(['keyword'=>$keyword,'gender'=>$gender,'date'=>$date,'category_id'=>$category_id])->links('vendor.pagination.bootstrap-4') }}</div>
                                     </div>
 
                                     <table class="searched__list">
