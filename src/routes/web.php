@@ -23,6 +23,5 @@ Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
 Route::post('/thanks', [ContactController::class, 'complete']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [UserController::class, 'admin']);
-    Route::get('/admin',[UserController::class,'delete']);
-    Route::get('/admin/{id}', [UserController::class, 'show'])->name('.admin.show');
+    Route::post('/admin', [UserController::class, 'delete']);
 });

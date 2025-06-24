@@ -1,16 +1,24 @@
-$(function () {
-    // 変数に要素を入れる
-    var close = $(".modal-close"),
-        container = $(".modal-container");
-    //closeボタンをクリックしたらモーダルウィンドウを閉じる
-    close.on("click", function () {
-        container.removeClass("active");
-    });
+// モーダル要素を取得
+var modal = document.getElementById("modal");
+// モーダルを開くボタンを取得
+var btn = document.getElementById("openDetail");
+// モーダルを閉じるアイコン（×）を取得
+var span = document.getElementById("closeModal");
 
-    //モーダルウィンドウの外側をクリックしたらモーダルウィンドウを閉じる
-    $(document).on("click", function (e) {
-        if (!$(e.target).closest(".modal-body").length) {
-            container.removeClass("active");
-        }
-    });
-});
+// ボタンがクリックされた時にモーダルを表示
+btn.onclick = function () {
+    modal.style.display = "block"; // モーダルのdisplayスタイルを"block"にして表示
+};
+
+// ×（クローズアイコン）がクリックされた時にモーダルを非表示
+// span.onclick = function () {
+//     modal.style.display = "none"; // モーダルのdisplayスタイルを"none"にして非表示
+// };
+
+// モーダルの外側がクリックされた時にモーダルを非表示
+window.onclick = function (event) {
+    // クリックされた箇所がモーダル自体（外側）であれば
+    if (event.target == modal) {
+        modal.style.display = "none"; // モーダルのdisplayスタイルを"none"にして非表示
+    }
+};

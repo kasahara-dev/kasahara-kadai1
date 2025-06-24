@@ -14,7 +14,7 @@ class UserController extends Controller
     public function admin()
     {
         $categories = Category::all();
-        $contacts = Contact::all();
+        $contacts = Contact::paginate(7);
         return view('.auth.admin', compact('categories', 'contacts'));
     }
     // public function contactsSearch()
@@ -22,15 +22,9 @@ class UserController extends Controller
     //     $categories = Category::all();
     //     return view('.auth.admin', compact('categories'));
     // }
-    public function show($id)
-    {
-        $contact = Contact::find($id);
 
-        return view('auth.show', compact('contact'));
-    }
     public function delete()
     {
-        // $contact = Contact::find($id);
         $categories = Category::all();
         $contacts = Contact::all();
         return view('.auth.admin', compact('categories', 'contacts'));
