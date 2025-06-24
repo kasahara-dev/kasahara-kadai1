@@ -13,18 +13,17 @@ class Contact extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
-    public function scopeKeyWordLikeName($query, $keyword)
+    public function scopeKeyWordLike($query, $keyword)
     {
         if (!empty($keyword)) {
-            $query->where('name', 'like', '%' . $keyword . '%');
+            $query
+                ->where('first_name', 'like', '%' . $keyword . '%')
+                ->orWhere('last_name', 'like', '%' . $keyword . '%')
+                ->orWhere('email', 'like', '%' . $keyword . '%')
+            ;
         }
     }
-    public function scopeKeyWordLikeEmail($query, $keyword)
-    {
-        if (!empty($keyword)) {
-            $query->where('email', 'like', '%' . $keyword . '%');
-        }
-    }
+
     public function scopeGenderEqual($query, $gender)
     {
         if ($gender != '0' and !empty($gender)) {
@@ -34,7 +33,7 @@ class Contact extends Model
     public function scopeCategoryEqual($query, $category_id)
     {
         if ($category_id != '0' and !empty($category_id)) {
-            $query->where('gender', '=', $category_id);
+            $query->where('category_id', '=', $category_id);
         }
     }
     public function scopeDateEqual($query, $date)
