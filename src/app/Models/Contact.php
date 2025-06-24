@@ -38,8 +38,8 @@ class Contact extends Model
     }
     public function scopeDateEqual($query, $date)
     {
-        if (!empty($keyword)) {
-            $query->whereDate('created_at', '$date');
+        if (!empty($date)) {
+            $query->whereDate('created_at', '=', $date);
         }
     }
 }

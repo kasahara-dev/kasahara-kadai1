@@ -39,15 +39,15 @@
                         </option>
                     @endforeach
                 </select>
-                <input type="date" name="date" />
+                <input type="date" name="date" value="{{ $date }}" />
                 <button type="submit" class="btn__submit" name="search">検索</button>
-                <input type="reset" value="リセット" />
+                <button type="submit" name="reset">リセット</button>
             </form>
         </search>
     </div>
     <div class="searched__area">
         <div class="searched__option">
-            <button type="button">エクスポート</button>
+            <button type="button" name="export">エクスポート</button>
             <div class="pages">
                 {{ $contacts->appends(['keyword' => $keyword, 'gender' => $gender, 'date' => $date, 'category_id' => $category_id])->links('vendor.pagination.bootstrap-4') }}
             </div>
