@@ -13,6 +13,7 @@ td {
 .searched__option {
     display: flex;
 }
+
 /* モーダルウィンドウの基本スタイル */
 .modal__area {
     display: none; /* デフォルトでは非表示に設定 */
@@ -21,6 +22,12 @@ td {
     left: 0; /* ページの最左端からスタート */
     width: 100%; /* モーダルが画面全体の幅を占める */
     height: 100%; /* モーダルが画面全体の高さを占める */
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.4
+    ); /* 背景を半透明の黒に設定（モーダルの背後が見えるように） */
 }
 .modal__body {
     position: fixed; /* モーダル内容が画面上に固定されるように設定 */
@@ -33,6 +40,8 @@ td {
     background-color: #fefefe; /* モーダルの背景色を白に設定 */
     border: 1px solid #888; /* 境界線の色を薄いグレーに設定 */
 }
+
+/* ページネーション */
 .pagination {
     display: -ms-flexbox;
     display: flex;

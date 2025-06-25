@@ -52,7 +52,6 @@
                 {{ $contacts->appends(['keyword' => $keyword, 'gender' => $gender, 'date' => $date, 'category_id' => $category_id])->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
-
         <table class="searched__list">
             <tr>
                 <th>お名前</th>
@@ -67,10 +66,13 @@
                     <td>{{ (config('gender')[$contact->gender]) }}</td>
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->category->content }}</td>
-                    <td><button id="openDetail" class="button__detail">詳細</button></td>
+                    <td><button id="openDetail" class="button__detail" data-modal="{{ $contact->id }}">詳細</button></td>
                 </tr>
-                <div id="modal" class="modal__area" data-contactId="{{ $contact->id }}">
+                <div id="{{$contact->id}}" class="modal__area" data-contactId="{{ $contact->id }}">
                     <div id="modalDisplay" class="modal__body">
+                        <div class="modal__top">
+                            <span class="modal__close">×</span>
+                        </div>
                         <div class="modal__table">
                             <dl>
                                 <dt><label for="kind">お名前</label></dt>
@@ -96,10 +98,10 @@
                             <button type="submit" id="delete" class="button__delete">削除</button>
                         </form>
                     </div>
+                </div>
+
             @endforeach
         </table>
-
-    </div>
     </div>
     <script src="{{ asset('/js/show.js') }}"></script>
 @endsection
