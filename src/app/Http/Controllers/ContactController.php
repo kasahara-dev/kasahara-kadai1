@@ -25,7 +25,8 @@ class ContactController extends Controller
     public function completed(Request $request)
     {
         $form = $request->all();
-        return redirect('/')->with(compact('form'));
+        session()->flash('_old_input', ['first_name' => $form["first_name"], 'last_name' => $form["last_name"], 'tel1' => $form["tel1"], 'tel2' => $form["tel2"], 'tel3' => $form["tel3"], 'email' => $form["email"], 'category_id' => $form["category_id"], 'address' => $form["address"], 'building' => $form["building"], 'detail' => $form["detail"]]);
+        return redirect('/');
     }
     public function complete(Request $request)
     {
