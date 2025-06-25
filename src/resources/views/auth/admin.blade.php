@@ -47,7 +47,7 @@
     </div>
     <div class="searched__area">
         <div class="searched__option">
-            <button type="button" name="export">エクスポート</button>
+            <button type="button" name="export" id="export" data-contacts="">エクスポート</button>
             <div class="pages">
                 {{ $contacts->appends(['keyword' => $keyword, 'gender' => $gender, 'date' => $date, 'category_id' => $category_id])->links('vendor.pagination.bootstrap-4') }}
             </div>
@@ -93,7 +93,7 @@
                                 <dd>{{ $contact->detail }}</dd>
                             </dl>
                         </div>
-                        <form class="form" action="/admin" method="post">
+                        <form class="form" action="/admin?id={{ $contact->id }}" method="post">
                             @csrf
                             <button type="submit" id="delete" class="button__delete">削除</button>
                         </form>
@@ -103,5 +103,6 @@
             @endforeach
         </table>
     </div>
+    <script src="{{ asset('/js/export.js') }}"></script>
     <script src="{{ asset('/js/show.js') }}"></script>
 @endsection

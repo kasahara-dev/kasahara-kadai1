@@ -21,7 +21,6 @@ class UserController extends Controller
         $date = null;
         if (isset($_GET['reset'])) {
             $contacts = Contact::with('category');
-            // $contacts = Contact::with('category')->paginate(7);
         } else {
             if (isset($request->keyword)) {
                 $keyword = $request->keyword;
@@ -40,22 +39,14 @@ class UserController extends Controller
                 ->genderEqual($request->gender)
                 ->categoryEqual($request->category_id)
                 ->dateEqual($request->date);
-            // ->paginate(7);
         }
         $contacts = $contacts->paginate(7);
         return view('.auth.admin', compact('categories', 'contacts', 'keyword', 'gender', 'category_id', 'date'));
     }
-    // public function contactsSearch()
-    // {
-    //     $categories = Category::all();
-    //     return view('.auth.admin', compact('categories'));
-    // }
-
-    public function delete()
+    public function delete(Request $request)
     {
-        $categories = Category::all();
-        $contacts = Contact::all();
-        return view('.auth.admin', compact('categories', 'contacts'));
+        Contact::find($request->id)->delete();
+        return redirect("admin")->withInput();
 
     }
 }
