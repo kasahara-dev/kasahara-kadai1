@@ -1,104 +1,103 @@
-.form__area {
-    max-width: 1300px;
+th,
+td {
+    border: 1px solid #333;
+}
+
+.table {
+    width: 1300px;
     padding: 0 20px;
     margin: 0 auto 120px;
 }
-.form__area .form__title {
-    font-weight: 500;
-    padding-bottom: 30px;
-    text-align: center;
-    font-family: "Noto Serif", serif;
-    color: #8b7969;
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 100%;
+.table__item {
+    width: 300px;
+    text-align: start;
 }
-.form__area dl {
-    margin-bottom: 40px;
-}
-.form__area .item {
-    display: flex;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-.form__area .item dt {
-    width: 250px;
-    color: #8b7969;
-
-    /* display: flex; */
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 20px;
-}
-.form__area .item dt .require {
-    color: #df4440;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 2px 5px;
-}
-.form__area .item dd {
-    width: calc(100% - 250px);
-    display: flex;
-    align-items: center;
-    padding: 0;
-}
-.form__area .item dd.name__group,
-.form__area .item dd.gender__group {
-    display: flex;
-    align-items: center;
-}
-.form__area .item dd .gender__item {
-    margin-right: 40px;
-    color: #8b7969;
-    accent-color: #8b7969;
-}
-.input__name {
-    background: #f4f4f4;
-    height: 30px;
-    width: 200px;
-    margin-right: 20px;
-    outline: none;
-    border: none;
-    padding: 10px 30px;
-}
-.input__email {
-    font-family: "Noto Serif", serif;
-    background: #f4f4f4;
-    height: 30px;
-    width: 200px;
-    margin-right: 20px;
-    outline: none;
-    border: none;
-    padding: 10px 30px;
-}
-.error {
+.require {
     color: red;
-    height: 10px;
+    font-weight: bold;
 }
-/* .form__area .item dd input [type="text"],
-.form__area .item dd input [type="textarea"],
-.form__area .item dd select {
-    width: 100%;
-    border: solid 1px #ccc;
-    padding: 20px;
-    background: #f4f4f4;
-} */
-.form__area .item dd input[type="radio"] {
-    margin-right: 5px;
+/* お名前 */
+.name__th {
+    height: 100px;
 }
-.form__area .item dd textarea {
-    width: 100%;
-    border: solid 1px #ccc;
-    padding: 20px;
-}
-.form__area .btn__submit {
-    width: 100px;
-    height: 40px;
-    background-color: #1f1f1f;
-    color: #fff;
+.name__group {
     display: flex;
+    height: 100px;
     align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    margin: 0 auto;
+}
+.name__input {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+}
+/* 性別 */
+.gender__th {
+    height: 100px;
+}
+.gender__group {
+    display: flex;
+    height: 60px;
+    align-items: flex-end;
+}
+.gender__item {
+    display: flex;
+    margin-right: 10px;
+}
+.gender__label {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+    line-height: 1;
+    cursor: pointer;
+    /* margin-left: 10px; */
+}
+.gender__label:not(:last-of-type) {
+    margin-right: 16px;
+}
+.gender__radio {
+    appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid #06b6d4; */
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.gender__radio:checked {
+    background-color: #dddddd;
+}
+
+.gender__radio:checked::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    border-radius: 9999px;
+    background-color: #8b7b68;
+}
+.gender__tr {
+    height: 70px;
+}
+.gender__error {
+    display: flex;
+    align-items: flex-end;
+}
+/* メールアドレス */
+.email__input {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+}
+.tel__group {
+    display: flex;
+    height: 100px;
 }
