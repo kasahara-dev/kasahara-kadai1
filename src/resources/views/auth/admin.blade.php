@@ -42,12 +42,13 @@
                 <input type="date" name="date" value="{{ $date }}" />
                 <button type="submit" class="btn__submit" name="search">検索</button>
                 <button type="submit" name="reset">リセット</button>
-            </form>
+
         </search>
     </div>
     <div class="searched__area">
         <div class="searched__option">
-            <button type="button" name="export" id="export" data-contacts="">エクスポート</button>
+            <button type="submit" name="export" id="export" data-contacts="">エクスポート</button>
+            </form>
             <div class="pages">
                 {{ $contacts->appends(['keyword' => $keyword, 'gender' => $gender, 'date' => $date, 'category_id' => $category_id])->links('vendor.pagination.bootstrap-4') }}
             </div>
@@ -103,6 +104,6 @@
             @endforeach
         </table>
     </div>
-    <script src="{{ asset('/js/export.js') }}"></script>
+    <!-- <script src="{{ asset('/js/export.js') }}"></script> -->
     <script src="{{ asset('/js/show.js') }}"></script>
 @endsection
