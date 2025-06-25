@@ -104,6 +104,5 @@
             @endforeach
         </table>
     </div>
-    <!-- <script src="{{ asset('/js/export.js') }}"></script> -->
     <script src="{{ asset('/js/show.js') }}"></script>
 @endsection

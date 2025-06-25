@@ -12,21 +12,23 @@
             <dl>
                 <div class="item">
                     <dt>
-                        <label for="kind">お名前</label>
+                        <label>お名前</label>
                         <span class="require">※</span>
                     </dt>
                     <dd class="name__group">
                         <div class="name__item">
-                            <input type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}" />
-                            @error('last_name')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="input__name" name="last_name" placeholder="例：山田"
+                                value="{{ old('last_name') }}" />
+                            <div class="error">
+                                @error('last_name'){{ $message }}@enderror
+                            </div>
                         </div>
                         <div class="name__item">
-                            <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}" />
-                            @error('first_name')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="input__name" name="first_name" placeholder="例：太郎"
+                                value="{{ old('first_name') }}" />
+                            <div class="error">
+                                @error('first_name'){{ $message }}@enderror
+                            </div>
                         </div>
                     </dd>
                 </div>
@@ -37,26 +39,21 @@
                     </dt>
                     <dd class="gender__group">
                         <div class="gender__item">
-                            @php
-                                $gender_check = old('gender');
-                                if (is_null($gender_check)) {
-                                    $gender_check = '1';
-                                }
-                            @endphp
-                            <input type="radio" name="gender" id="gender-1" value="1" @if($gender_check == '1') checked
-                            @endif />
-                            <label for="gender-1">{{ config('gender.1') }}</label>
-                            @error('gender')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <input type="radio" name="gender" id="gender-1" value="1" @if(old('gender', '1') != '2' and old('gender', '1') != '3') checked @endif />
+                            <label>{{ config('gender.1') }}</label>
+                            <div class="error">
+                                @error('gender')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                         <div class="gender__item">
-                            <input type="radio" name="gender" id="gender-2" value="2" @if($gender_check == '2') checked
+                            <input type="radio" name="gender" id="gender-2" value="2" @if(old('gender', '1') == '2') checked
                             @endif />
                             <label for="gender-2">{{ config('gender.2') }}</label>
                         </div>
                         <div class="gender__item">
-                            <input type="radio" name="gender" id="gender-3" value="3" @if($gender_check == '3') checked
+                            <input type="radio" name="gender" id="gender-3" value="3" @if(old('gender', '1') == '3') checked
                             @endif />
                             <label for="gender-3">{{ config('gender.3') }}</label>
                         </div>
@@ -69,7 +66,8 @@
                     </dt>
                     <dd class="email__group">
                         <div class="email__item">
-                            <input type="text" name="email" placeholder="例：test@example.com" value="{{ old('email') }}" />
+                            <input type="text" class="input__email" name="email" placeholder="例：test@example.com"
+                                value="{{ old('email') }}" />
                             @error('email')
                                 <div class="error">{{ $message }}</div>
                             @enderror
@@ -84,21 +82,21 @@
                     <dd class="tel__group">
                         <div class="tel__item">
                             <input type="text" name="tel1" placeholder="080" value="{{ old('tel1') }}" />
-                            @error('tel1')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('tel1'){{ $message }}@enderror
+                            </div>
                         </div>
                         <div class="tel__item">
                             <input type="text" name="tel2" placeholder="1234" value="{{ old('tel2') }}" />
-                            @error('tel2')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('tel2'){{ $message }}@enderror
+                            </div>
                         </div>
                         <div class="tel__item">
                             <input type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
-                            @error('tel3')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('tel3'){{ $message }}@enderror
+                            </div>
                         </div>
                     </dd>
                 </div>
