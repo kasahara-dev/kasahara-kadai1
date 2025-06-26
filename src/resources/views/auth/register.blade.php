@@ -14,13 +14,12 @@
 @section('content')
     <div class="form__area">
         <h1 class="form__title">Register</h1>
+        <div class="box__area">
         <form class="form" action="/register" method="post">
             @csrf
             <dl>
                 <div class="item">
-                    <dt>
-                        <label for="kind">お名前</label>
-                    </dt>
+                    <dt>お名前</dt>
                     <dd class="name__group">
                         <div class="name__item">
                             <input type="text" name="name" placeholder="例：山田　太郎" value="{{ old('name') }}" />
@@ -34,7 +33,7 @@
             <dl>
                 <div class="item">
                     <dt>
-                        <label for="kind">メールアドレス</label>
+                        メールアドレス
                     </dt>
                     <dd class="email__group">
                         <div class="email__item">
@@ -49,7 +48,7 @@
             <dl>
                 <div class="item">
                     <dt>
-                        <label for="kind">パスワード</label>
+                        パスワード
                     </dt>
                     <dd class="password__group">
                         <div class="password__item">
@@ -64,5 +63,6 @@
             </dl>
             <button type="submit" class="btn__submit" name="send">登録</button>
         </form>
+        </div>
     </div>
 @endsection
