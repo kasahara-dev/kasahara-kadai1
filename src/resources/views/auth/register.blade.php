@@ -39,9 +39,11 @@
                             <div class="email__item">
                                 <input type="text" name="email" placeholder="例：test@example.com"
                                     value="{{ old('email') }}" />
-                                @error('email')
-                                    <div class="error">{{ $message }}</div>
-                                @enderror
+                                <div class="error email__error">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror
+                                </div>
                             </div>
                         </dd>
                     </div>
