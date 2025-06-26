@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="form__area">
-        <p class="form__title">Contact</p>
+        <h1 class="form__title">Contact</h1>
         <form class="form" action="/confirm" method="get">
             @csrf
             <table class="table">
@@ -73,9 +73,11 @@
                         <div class="email__item">
                             <input type="text" class="email__input" name="email" placeholder="例：test@example.com"
                                 value="{{ old('email') }}" />
-                            @error('email')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('email')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -84,20 +86,24 @@
                     </th>
                     <td class="tel__group">
                         <div class="tel__item">
-                            <input type="text" name="tel1" placeholder="080" value="{{ old('tel1') }}" />
-                            <div class="error">
+                            <input type="text" name="tel1" class="tel__input" placeholder="080" value="{{ old('tel1') }}" />
+                            <div class="error min-text">
                                 @error('tel1'){{ $message }}@enderror
                             </div>
                         </div>
+                        &emsp;-&emsp;
                         <div class="tel__item">
-                            <input type="text" name="tel2" placeholder="1234" value="{{ old('tel2') }}" />
-                            <div class="error">
+                            <input type="text" name="tel2" class="tel__input" placeholder="1234"
+                                value="{{ old('tel2') }}" />
+                            <div class="error min-text">
                                 @error('tel2'){{ $message }}@enderror
                             </div>
                         </div>
+                        &emsp;-&emsp;
                         <div class="tel__item">
-                            <input type="text" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
-                            <div class="error">
+                            <input type="text" name="tel3" class="tel__input" placeholder="5678"
+                                value="{{ old('tel3') }}" />
+                            <div class="error min-text">
                                 @error('tel3'){{ $message }}@enderror
                             </div>
                         </div>
@@ -108,11 +114,13 @@
                     </th>
                     <td class="address__group">
                         <div class="address__item">
-                            <input type="text" name="address" placeholder="例：東京都千代田区千駄ヶ谷1-2-3"
+                            <input type="text" name="address" class="address__input" placeholder="例：東京都千代田区千駄ヶ谷1-2-3"
                                 value="{{ old('address') }}" />
-                            @error('address')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('address')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -120,7 +128,8 @@
                     <th class="table__item">建物名</th>
                     <td class="building__group">
                         <div class="building__item">
-                            <input type="text" name="building" placeholder="例：千駄ヶ谷マンション101" value="{{ old('building') }}" />
+                            <input type="text" name="building" class="building__input" placeholder="例：千駄ヶ谷マンション101"
+                                value="{{ old('building') }}" />
                         </div>
                     </td>
                 </tr>
@@ -129,18 +138,23 @@
                     </th>
                     <td class="category__group">
                         <div class="category__item">
-                            <select class="category__select" name="category_id" id="select__category-new">
-                                <option value="" selected hidden>選択してください</option>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @if (old('category_id') == $category->id) selected @endif>
-                                        {{ $category->content }}
+                            <div class="select__wrapper">
+                                <select name="category_id" class="category__select" id="select__category-new">
+                                    <option value="" selected hidden>選択してください</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @if (old('category_id') == $category->id) selected
+                                        @endif>
+                                            {{ $category->content }}
+                                        </option>
+                                    @endforeach
                                     </option>
-                                @endforeach
-                                </option>
-                            </select>
-                            @error('category_id')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                                </select>
+                            </div>
+                            <div class="error">
+                                @error('category_id')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -148,7 +162,8 @@
                     <th class="table__item">お問い合わせ内容<span class="require">※</span></th>
                     <td class="detail__group">
                         <div class="detail__item">
-                            <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
+                            <textarea name="detail" class="detail__textarea"
+                                placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                             @error('detail')
                                 <div class="error">{{ $message }}</div>
                             @enderror
@@ -156,8 +171,8 @@
                     </td>
                 </tr>
             </table>
-            <div>
-                <button type="submit" class="btn__submit" name="send">確認</button>
+            <div class="button__area">
+                <button type="submit" class="submit__button" name="send">確認画面</button>
             </div>
         </form>
     </div>

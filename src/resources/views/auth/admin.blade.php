@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="title__area">
-        <p class="form__title">Admin</p>
+        <h1 class="form__title">Admin</h1>
     </div>
     <div class="conditions__area">
         <search>

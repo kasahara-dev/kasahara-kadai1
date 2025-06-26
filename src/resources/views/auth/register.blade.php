@@ -13,7 +13,7 @@
 
 @section('content')
     <div class="form__area">
-        <p class="form__title">Register</p>
+        <h1 class="form__title">Register</h1>
         <form class="form" action="/register" method="post">
             @csrf
             <dl>

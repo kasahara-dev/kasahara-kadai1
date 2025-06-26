@@ -1,12 +1,40 @@
 body,
-input {
+input,
+textarea,
+select {
     font-family: "Noto Serif", serif;
     color: #8b7969;
 }
+textarea,
 input {
     background: #f4f4f4;
     outline: none;
     border: none;
+}
+textarea {
+    resize: none;
+}
+.select__wrapper {
+    position: relative;
+}
+.select__wrapper::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 12px;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #8b7969;
+    border-bottom: 0;
+    pointer-events: none;
+}
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f4f4f4;
+    outline: none;
+    border: none;
+    color: #8b7969;
 }
 a,
 a:visited {
@@ -45,7 +73,20 @@ a:visited {
     font-size: 35px;
     line-height: 100%;
 }
+.submit__button {
+    display: inline-block;
+    text-align: center; /* 文字位置   */
+    cursor: pointer; /* カーソル   */
+    padding: 1em 2em; /* 余白       */
+    background: #8b7969; /* 背景色     */
+    color: #ffffff; /* 文字色     */
+    line-height: 1em; /* 1行の高さ  */
+    border: none;
+}
 .error {
     color: red;
     height: 10px;
+}
+.min-text {
+    font-size: small;
 }

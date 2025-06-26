@@ -7,7 +7,7 @@
 @section('content')
     <div class="confirm__area">
 
-        <p class="form__title">Confirm</p>
+        <h1 class="form__title">Confirm</h1>
 
         <table>
             <tr class="item">
