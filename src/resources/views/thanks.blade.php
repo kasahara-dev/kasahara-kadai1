@@ -19,7 +19,6 @@
                 HOME
             </a>
         </div>
-
     </main>
 </body>
 

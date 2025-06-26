@@ -1,0 +1,34 @@
+.message__area {
+    position: relative;
+    display: flex; /* フレックスボックスを有効化 */
+    flex-direction: column;
+    justify-content: center; /* 水平方向の中央寄せ */
+    align-items: center; /* 垂直方向の中央寄せ */
+    margin: 300px 0;
+}
+.message__area::after {
+    content: "Thank you";
+    position: absolute;
+    top: 0%; /* 垂直方向の中央寄せ */
+    left: 50%; /* 水平方向の中央寄せ */
+    transform: translate(-50%, -50%); /* 中央に配置 */
+    font-size: 200px; /* 背景テキストのフォントサイズ */
+    color: #f8f8f8; /* 背景テキストの色（透明度含む） */
+    z-index: -1; /* 背景として配置 */
+    white-space: nowrap; /* テキストの折り返し防止 */
+}
+.message {
+    font-weight: bold;
+}
+.thanks__logo {
+    margin-top: 20px;
+    padding: 0.5em 2em;
+    background-color: #8b7969;
+    text-decoration: none; /* aタグの下線を非表示に */
+    color: #fff; /* 文字色 */
+    text-decoration: none;
+}
+a,
+a:visited {
+    color: #fff; /* 文字色 */
+}
