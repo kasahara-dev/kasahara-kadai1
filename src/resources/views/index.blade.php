@@ -87,7 +87,7 @@
                     <td class="tel__group">
                         <div class="tel__item">
                             <input type="text" name="tel1" class="tel__input" placeholder="080" value="{{ old('tel1') }}" />
-                            <div class="error min-text">
+                            <div class="error tel__error">
                                 @error('tel1'){{ $message }}@enderror
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <div class="tel__item">
                             <input type="text" name="tel2" class="tel__input" placeholder="1234"
                                 value="{{ old('tel2') }}" />
-                            <div class="error min-text">
+                            <div class="error tel__error">
                                 @error('tel2'){{ $message }}@enderror
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         <div class="tel__item">
                             <input type="text" name="tel3" class="tel__input" placeholder="5678"
                                 value="{{ old('tel3') }}" />
-                            <div class="error min-text">
+                            <div class="error tel__error">
                                 @error('tel3'){{ $message }}@enderror
                             </div>
                         </div>

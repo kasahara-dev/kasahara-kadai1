@@ -1,15 +1,27 @@
+input {
+    height: 50px;
+    width: 300px;
+    padding: 0 20px;
+}
+dt {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+dd {
+    margin-left: 0;
+}
 .login__link {
     position: absolute;
     right: 10px;
     margin-top: 20px;
     padding: 0.5em 2em;
     background-color: #f0f0f0;
-    color: #d9c6b5; /* 文字色 */
+    color: #d9c6b5;
     text-decoration: none;
     border: 1px solid #d9c6b5;
 }
 .login__link:visited {
-    color: #d9c6b5; /* 文字色 */
+    color: #d9c6b5;
 }
 .form__area {
     display: flex;
@@ -19,17 +31,23 @@
     padding-bottom: 50px;
 }
 .box__area {
+    padding-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 400px;
-    width: 500px;
+    height: 450px;
+    width: 550px;
+    border: 1px solid #c5b9b0;
+    border-radius: 10px;
 }
 .item {
     height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
-input {
-    height: 50px;
-    width: 300px;
+.button__area {
+    display: flex;
+    justify-content: center;
 }
