@@ -6,13 +6,15 @@ th {
     border-bottom: 1px solid white;
     color: white;
     padding: 10px 20px;
-    width: 30%;
+    width: 300px;
     height: 35px;
     text-align: justify;
 }
 td {
     border-bottom: 1px solid #bba99a; /* 枠線の太さ、種類、色 */
     padding: 10px 20px;
+    word-break: break-all;
+    white-space: normal;
 }
 .confirm__area {
     display: flex;
@@ -25,7 +27,7 @@ td {
     margin: 10px auto;
 }
 .detail__th {
-    height: auto;
+    min-height: 50px;
 }
 .button__area {
     display: flex;
