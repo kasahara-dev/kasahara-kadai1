@@ -9,7 +9,7 @@
 
         <h1 class="form__title">Confirm</h1>
 
-        <table>
+        <table class="table__area">
             <tr class="item">
                 <th>
                     お名前
@@ -75,7 +75,7 @@
                 </td>
             </tr>
             <tr class="item">
-                <th>
+                <th class="detail__th">
                     お問い合わせ内容
                 </th>
                 <td class="detail__group">
@@ -95,7 +95,7 @@
                 <input type="hidden" name="building" value="{{ $form['building'] }}" />
                 <input type="hidden" name="category_id" value="{{ $form['category_id'] }}" />
                 <input type="hidden" name="detail" value="{{ $form['detail'] }}" />
-                <button type="submit" class="btn__submit" name="send">送信</button>
+                <button type="submit" class="submit__button" name="send">送信</button>
                 <a class="link__back" name="revise"
                     href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'detail' => $form['detail']]) }}">修正</a>
             </div>

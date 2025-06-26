@@ -1,0 +1,36 @@
+table {
+    border: 1px solid #bba99a;
+}
+th {
+    background-color: #bba99a;
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    width: 30%;
+    height: 35px;
+    text-align: justify;
+}
+td {
+    border-bottom: 1px solid #bba99a; /* 枠線の太さ、種類、色 */
+    padding: 10px 20px;
+}
+.confirm__area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.table__area {
+    border-collapse: collapse; /* 枠線を重ねない */
+    width: 800px;
+    margin: 10px auto;
+}
+.detail__th {
+    height: auto;
+}
+.button__area {
+    display: flex;
+    margin: 20px auto;
+    width: 200px;
+    justify-content: space-evenly;
+    align-items: center;
+}
