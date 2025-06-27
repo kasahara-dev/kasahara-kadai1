@@ -1,0 +1,86 @@
+body,
+input,
+textarea,
+button,
+select {
+    font-family: "Noto Serif", serif;
+    color: #8b7969;
+}
+textarea,
+input {
+    background: #f4f4f4;
+    outline: none;
+    border: none;
+}
+textarea {
+    resize: none;
+}
+.select__wrapper {
+    position: relative;
+}
+.select__wrapper::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 12px;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #8b7969;
+    border-bottom: 0;
+    pointer-events: none;
+}
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f4f4f4;
+    outline: none;
+    border: none;
+    color: #8b7969;
+}
+a,
+a:visited {
+    color: #8b7969;
+}
+.wrapper {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 0 0;
+}
+.header {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #e0dfde;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.header__logo {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 90px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.form__title {
+    font-weight: 500;
+    text-align: center;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 100%;
+}
+.submit__button {
+    display: inline-block;
+    text-align: center; /* 文字位置   */
+    cursor: pointer; /* カーソル   */
+    padding: 1em 2em; /* 余白       */
+    background: #8b7969; /* 背景色     */
+    color: #ffffff; /* 文字色     */
+    line-height: 1em; /* 1行の高さ  */
+    border: none;
+}
+.error {
+    color: red;
+    height: 10px;
+}
