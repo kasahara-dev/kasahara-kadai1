@@ -1,8 +1,4 @@
-body,
-input,
-textarea,
-button,
-select {
+.wrapper {
     font-family: "Noto Serif", serif;
     color: #8b7969;
 }
