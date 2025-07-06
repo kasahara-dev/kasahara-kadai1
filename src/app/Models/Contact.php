@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Contact extends Model
 {
@@ -17,8 +18,9 @@ class Contact extends Model
     {
         if (!empty($keyword)) {
             $query
-                ->where('first_name', 'like', '%' . $keyword . '%')
-                ->orWhere('last_name', 'like', '%' . $keyword . '%')
+                ->where(DB::raw("CONCAT(last_name,first_name)"), 'like', '%' . $keyword . '%')
+                ->orWhere(DB::raw("CONCAT(last_name,' ',first_name)"), 'like', '%' . $keyword . '%')
+                ->orWhere(DB::raw("CONCAT(last_name,'　',first_name)"), 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%')
             ;
         }
