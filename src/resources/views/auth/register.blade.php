@@ -19,10 +19,10 @@
                 @csrf
                 <dl>
                     <div class="item">
-                        <dt>お名前</dt>
-                        <dd class="name__group">
+                        <dt class="item__dt">お名前</dt>
+                        <dd class="item__dd name__group">
                             <div class="name__item">
-                                <input type="text" name="name" placeholder="例：山田　太郎" value="{{ old('name') }}" />
+                                <input class="item__input" type="text" name="name" placeholder="例：山田　太郎" value="{{ old('name') }}" />
                                 @error('name')
                                     <div class="error">{{ $message }}</div>
                                 @enderror
@@ -32,12 +32,12 @@
                 </dl>
                 <dl>
                     <div class="item">
-                        <dt>
+                        <dt class="item__dt">
                             メールアドレス
                         </dt>
-                        <dd class="email__group">
+                        <dd class="item__dd email__group">
                             <div class="email__item">
-                                <input type="text" name="email" placeholder="例：test@example.com"
+                                <input class="item__input" type="text" name="email" placeholder="例：test@example.com"
                                     value="{{ old('email') }}" />
                                 <div class="error email__error">
                                     @error('email')
@@ -50,12 +50,12 @@
                 </dl>
                 <dl>
                     <div class="item">
-                        <dt>
+                        <dt class="item__dt">
                             パスワード
                         </dt>
-                        <dd class="password__group">
+                        <dd class="item__dd password__group">
                             <div class="password__item">
-                                <input type="text" name="password" placeholder="例：coachtech1106"
+                                <input class="item__input" type="text" name="password" placeholder="例：coachtech1106"
                                     value="{{ old('password') }}" />
                                 @error('password')
                                     <div class="error">{{ $message }}</div>

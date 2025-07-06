@@ -2,7 +2,7 @@
     font-family: "Noto Serif", serif;
     color: #8b7969;
 }
-textarea,
+/* textarea,
 input {
     background: #f4f4f4;
     outline: none;
@@ -11,6 +11,18 @@ input {
 textarea {
     resize: none;
 }
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f4f4f4;
+    outline: none;
+    border: none;
+    color: #8b7969;
+}
+a,
+a:visited {
+    color: #8b7969;
+} */
 .select__wrapper {
     position: relative;
 }
@@ -25,18 +37,7 @@ textarea {
     border-bottom: 0;
     pointer-events: none;
 }
-select {
-    -webkit-appearance: none;
-    appearance: none;
-    background: #f4f4f4;
-    outline: none;
-    border: none;
-    color: #8b7969;
-}
-a,
-a:visited {
-    color: #8b7969;
-}
+
 .wrapper {
     max-width: 1550px;
     margin: 0 auto;
@@ -52,6 +53,11 @@ a:visited {
     align-items: flex-start;
 }
 .header__logo {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    color: #8b7969;
     font-weight: 400;
     font-size: 40px;
     line-height: 90px;
@@ -67,6 +73,7 @@ a:visited {
     line-height: 100%;
 }
 .submit__button {
+    font-family: "Noto Serif", serif;
     display: inline-block;
     text-align: center; /* 文字位置   */
     cursor: pointer; /* カーソル   */
