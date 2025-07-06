@@ -26,6 +26,7 @@
                     <div class="gender__select__area">
                         <select class="item__select gender__select" name="gender" id="select__gender">
                             <option value="0" @if($gender == '0') selected @endif>性別</option>
+                            <option value="4" @if($gender == '4') selected @endif>全て</option>
                             @foreach(config('gender') as $genderId => $genderName)
                                 <option value="{{ $genderId }}" @if($gender == $genderId) selected @endif>
                                     {{ $genderName }}

@@ -26,7 +26,7 @@ class Contact extends Model
 
     public function scopeGenderEqual($query, $gender)
     {
-        if ($gender != '0' and !empty($gender)) {
+        if ($gender != '0' and $gender != '4' and !empty($gender)) {
             $query->where('gender', '=', $gender);
         }
     }
