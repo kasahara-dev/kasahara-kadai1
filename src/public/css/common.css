@@ -2,27 +2,6 @@
     font-family: "Noto Serif", serif;
     color: #8b7969;
 }
-/* textarea,
-input {
-    background: #f4f4f4;
-    outline: none;
-    border: none;
-}
-textarea {
-    resize: none;
-}
-select {
-    -webkit-appearance: none;
-    appearance: none;
-    background: #f4f4f4;
-    outline: none;
-    border: none;
-    color: #8b7969;
-}
-a,
-a:visited {
-    color: #8b7969;
-} */
 .select__wrapper {
     position: relative;
 }

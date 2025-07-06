@@ -88,7 +88,7 @@
                         <div class="tel__item">
                             <input type="text" name="tel1" class="tel__input" placeholder="080" value="{{ old('tel1') }}" />
                             <div class="error tel__error">
-                                @error('tel1'){{ $message }}@enderror
+                                @error('tel1'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                         &emsp;-&emsp;
@@ -96,7 +96,7 @@
                             <input type="text" name="tel2" class="tel__input" placeholder="1234"
                                 value="{{ old('tel2') }}" />
                             <div class="error tel__error">
-                                @error('tel2'){{ $message }}@enderror
+                                @error('tel2'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                         &emsp;-&emsp;
@@ -104,7 +104,7 @@
                             <input type="text" name="tel3" class="tel__input" placeholder="5678"
                                 value="{{ old('tel3') }}" />
                             <div class="error tel__error">
-                                @error('tel3'){{ $message }}@enderror
+                                @error('tel3'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                     </td>

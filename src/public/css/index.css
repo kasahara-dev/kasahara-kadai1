@@ -123,7 +123,6 @@
     align-items: baseline;
 }
 .tel__item {
-    position: relative;
 }
 .tel__input {
     background: #f4f4f4;
@@ -137,7 +136,6 @@
     color: #8b7969;
 }
 .tel__error {
-    position: absolute;
     font-size: small;
     left: -20px;
     right: -20px;
