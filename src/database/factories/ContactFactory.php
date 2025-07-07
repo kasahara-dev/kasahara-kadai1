@@ -19,6 +19,7 @@ class ContactFactory extends Factory
     {
         $categories = Category::pluck('id')->all();
         $items = Item::pluck('id')->all();
+        $channels = Channel::pluck('id')->all();
         array_push($items, null);
         return [
             'category_id' => $categories[array_rand($categories)],

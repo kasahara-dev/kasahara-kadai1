@@ -20,7 +20,7 @@ class Contact extends Model
     }
     public function channel()
     {
-        return $this->hasMany('App\Models\Channel');
+        return $this->belongsToMany('App\Models\Channel');
     }
     public function scopeKeyWordLike($query, $keyword)
     {

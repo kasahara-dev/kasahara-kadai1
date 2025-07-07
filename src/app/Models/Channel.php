@@ -10,6 +10,6 @@ class Channel extends Model
     use HasFactory;
     public function contact()
     {
-        return $this->hasMany('App\Models\Contact');
+        return $this->belongsToMany('App\Models\Contact');
     }
 }
