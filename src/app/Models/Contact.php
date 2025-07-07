@@ -18,6 +18,10 @@ class Contact extends Model
     {
         return $this->belongsTo('App\Models\Item');
     }
+    public function channel()
+    {
+        return $this->hasMany('App\Models\Channel');
+    }
     public function scopeKeyWordLike($query, $keyword)
     {
         if (!empty($keyword)) {
