@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Category;
+use App\Models\Item;
 
 class ContactFactory extends Factory
 {
@@ -16,8 +16,11 @@ class ContactFactory extends Factory
     public function definition()
     {
         $categories = Category::pluck('id')->all();
+        $items = Item::pluck('id')->all();
+        array_push($items, null);
         return [
             'category_id' => $categories[array_rand($categories)],
+            'item_id' => $items[array_rand($items)],
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'gender' => $this->faker->numberBetween(1, 3),

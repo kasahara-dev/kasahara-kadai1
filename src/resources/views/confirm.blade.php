@@ -75,6 +75,14 @@
                 </td>
             </tr>
             <tr class="item">
+                <th class="table__th">
+                    お問い合わせの商品
+                </th>
+                <td class="table__td item__group">
+                    <div class="item__item">{{ $form['item_name'] }}</div>
+                </td>
+            </tr>
+            <tr class="item">
                 <th class="table__th detail__th">
                     お問い合わせ内容
                 </th>
@@ -94,10 +102,11 @@
                 <input type="hidden" name="address" value="{{ $form['address'] }}" />
                 <input type="hidden" name="building" value="{{ $form['building'] }}" />
                 <input type="hidden" name="category_id" value="{{ $form['category_id'] }}" />
+                <input type="hidden" name="item_id" value="{{ $form['item_id'] }}" />
                 <input type="hidden" name="detail" value="{{ $form['detail'] }}" />
                 <button type="submit" class="submit__button" name="send">送信</button>
                 <a class="link__back" name="revise"
-                    href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'detail' => $form['detail']]) }}">修正</a>
+                    href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'item_id' => $form['item_id'], 'detail' => $form['detail']]) }}">修正</a>
             </div>
         </form>
     </div>

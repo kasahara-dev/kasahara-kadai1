@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\DB;
 class Contact extends Model
 {
     use HasFactory;
-    protected $fillable = ['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'];
+    protected $fillable = ['category_id', 'item_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'];
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
+    }
+    public function item()
+    {
+        return $this->belongsTo('App\Models\Item');
     }
     public function scopeKeyWordLike($query, $keyword)
     {

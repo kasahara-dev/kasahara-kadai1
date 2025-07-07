@@ -220,11 +220,52 @@
     -webkit-appearance: none;
     appearance: none;
     background: #f4f4f4;
+    font-family: "Noto Serif", serif;
     outline: none;
     border: none;
     color: #8b7969;
 }
 .category__select::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 12px;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #8b7969;
+    border-bottom: 0;
+    pointer-events: none;
+}
+/* お問い合わせの商品 */
+.item__group {
+    vertical-align: top;
+    justify-content: space-between;
+    display: flex;
+    height: 100px;
+    align-items: flex-start;
+}
+.item__item {
+    display: flex;
+    height: 100px;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+.item__select {
+    height: 50px;
+    box-sizing: border-box;
+    width: 300px;
+    padding: 10px 30px;
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f4f4f4;
+    font-family: "Noto Serif", serif;
+    outline: none;
+    border: none;
+    color: #8b7969;
+}
+.item__select::after {
     content: "";
     position: absolute;
     top: 22px;

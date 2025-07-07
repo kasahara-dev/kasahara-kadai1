@@ -159,6 +159,26 @@
                     </td>
                 </tr>
                 <tr>
+                    <th class="table__item">お問い合わせの商品</th>
+                    <td class="item__group">
+                        <div class="item__item">
+                            <div class="select__wrapper">
+                                <select name="item_id" class="item__select" id="select__item-new">
+                                    <option value=null @if (old('item_id') == null) selected @endif>選択してください</option>
+                                    @foreach ($items as $item)
+                                        <option value="{{ $item->id }}" @if (old('item_id') == $item->id) selected @endif>
+                                            {{ $item->content }}
+                                        </option>
+                                    @endforeach
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="error">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <th class="table__item">お問い合わせ内容<span class="require">※</span></th>
                     <td class="detail__group">
                         <div class="detail__item">
