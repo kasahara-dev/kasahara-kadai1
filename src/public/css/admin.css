@@ -1,3 +1,7 @@
+.form {
+    justify-self: end;
+    align-self: anchor-center;
+}
 /* ログアウトボタン */
 .logout__button {
     font-family: "Noto Serif", serif;
@@ -9,9 +13,6 @@
     color: #d9c6b5; /* 文字色     */
     line-height: 1em; /* 1行の高さ  */
     border: 1px solid #d9c6b5;
-    position: absolute;
-    top: 25%;
-    right: 0;
     font-size: 20px;
 }
 .contents__area {
