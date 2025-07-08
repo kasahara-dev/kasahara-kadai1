@@ -18,9 +18,9 @@ class Contact extends Model
     {
         return $this->belongsTo('App\Models\Item');
     }
-    public function channel()
+    public function channels()
     {
-        return $this->belongsToMany('App\Models\Channel');
+        return $this->belongsToMany('App\Models\Channel')->withTimestamps();
     }
     public function scopeKeyWordLike($query, $keyword)
     {

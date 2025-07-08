@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     use HasFactory;
-    public function contact()
+    public function contacts()
     {
-        return $this->belongsToMany('App\Models\Contact');
+        return $this->belongsToMany('App\Models\Contact')->withTimestamps();
     }
 }
