@@ -190,6 +190,19 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <th class="table__item">どこで知りましたか？</th>
+                    <td class="channel__group">
+                        <div class="channel__item">
+                            <!-- <input type="hidden" name="channel[]" value="0" /> -->
+                            @foreach ($channels as $key => $channel)
+                                <input type="checkbox" name="channel_id[{{ $key }}]" id="channel_id[{{ $key }}]"
+                                    value="{{ $channel->id }}" @if (old("channel_id.$key") == $channel->id) checked @endif />
+                                <label for="channel_id[{{ $key }}]">{{ $channel->content }}</label>
+                            @endforeach
+                        </div>
+                    </td>
+                </tr>
             </table>
             <div class="button__area">
                 <button type="submit" class="submit__button" name="send">確認画面</button>

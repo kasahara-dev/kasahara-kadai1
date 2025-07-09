@@ -90,6 +90,18 @@
                     <div class="detail__item">{{ $form['detail'] }}</div>
                 </td>
             </tr>
+            <tr class="item">
+                <th class="table__th channel__th">
+                    どこで知りましたか？
+                </th>
+                <td class="table__td channel__group">
+                    @if (isset($form["channel_name"]) and $form["channel_name"] != null)
+                        @foreach ($form["channel_name"] as $channel_name)
+                            <div class="channel__item">{{ $channel_name }}</div>
+                        @endforeach
+                    @endif
+                </td>
+            </tr>
         </table>
         <form class="form" action="/thanks" method="post">
             @csrf
@@ -104,9 +116,20 @@
                 <input type="hidden" name="category_id" value="{{ $form['category_id'] }}" />
                 <input type="hidden" name="item_id" value="{{ $form['item_id'] }}" />
                 <input type="hidden" name="detail" value="{{ $form['detail'] }}" />
+                {{--
+                <input type="hidden" name="channel_id" value="{{ $form[" channel_id"] }}" />
+                --}}
+                @if (isset($form["channel_id"]) and $form["channel_id"] != null)
+                    @foreach ($form["channel_id"] as $channel_id)
+                        <input type="hidden" name="channel_id[]" value="{{ $channel_id }}" />
+                    @endforeach
+                @endif
                 <button type="submit" class="submit__button" name="send">送信</button>
+                {{-- dd($form["channel_id[]"]) --}}
                 <a class="link__back" name="revise"
-                    href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'item_id' => $form['item_id'], 'detail' => $form['detail']]) }}">修正</a>
+                    href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'item_id' => $form['item_id'], 'detail' => $form['detail'], "channel_id" => $form["channel_id"] ?? null]) }}">修正</a>
+                {{-- , 'channel_id' => $form["channel_id[]"] --}}
+
             </div>
         </form>
     </div>
