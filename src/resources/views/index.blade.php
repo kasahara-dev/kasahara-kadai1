@@ -7,7 +7,7 @@
 @section('content')
     <div class="form__area">
         <h1 class="form__title">Contact</h1>
-        <form class="form" action="/confirm" method="get">
+        <form class="form" action="/confirm" method="post" enctype="multipart/form-data">
             @csrf
             <table class="table">
                 <tr>
@@ -187,6 +187,17 @@
                             @error('detail')
                                 <div class="error">{{ $message }}</div>
                             @enderror
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="picture__item">画像ファイル</th>
+                    <td class="picture__group">
+                        <div class="picture__item">
+                            <input type="file" name="picture" class="picture__input" value="{{ old('picture') }}" />
+                        </div>
+                        <div class="error">
+                            @error('picture'){{ $message }}@enderror
                         </div>
                     </td>
                 </tr>

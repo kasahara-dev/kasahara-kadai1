@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [ContactController::class, 'index']);
-Route::get('/confirm', [ContactController::class, 'confirmed']);
+Route::post('/confirm', [ContactController::class, 'confirmed']);
 Route::get('/thanks', [ContactController::class, 'completed'])->name('.revise');
 Route::post('/thanks', [ContactController::class, 'complete']);
 Route::middleware('auth')->group(function () {
