@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Contact extends Model
 {
     use HasFactory;
-    protected $fillable = ['category_id', 'item_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'];
+    protected $fillable = ['category_id', 'item_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail', 'img_path'];
     public function category()
     {
         return $this->belongsTo('App\Models\Category');

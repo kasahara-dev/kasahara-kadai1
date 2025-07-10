@@ -25,6 +25,7 @@ class CreateContactsTable extends Migration
             $table->string('address', 255);
             $table->string('building', 255)->nullable();
             $table->text('detail');
+            $table->string('img_path', 255)->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

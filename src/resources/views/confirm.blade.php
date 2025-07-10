@@ -131,6 +131,9 @@
                         <input type="hidden" name="channel_id[]" value="{{ $channel_id }}" />
                     @endforeach
                 @endif
+                @if(isset($fileName) and $fileName != null)
+                    <input type="hidden" name="img_path" value="{{ $fileName }}" />
+                @endif
                 <button type="submit" class="submit__button" name="send">送信</button>
                 <a class="link__back" name="revise"
                     href="{{ route('.revise', ['revise' => true, 'first_name' => $form['first_name'], 'last_name' => $form['last_name'], 'gender' => $form['gender'], 'tel1' => $form['tel1'], 'tel2' => $form['tel2'], 'tel3' => $form['tel3'], 'email' => $form['email'], 'address' => $form['address'], 'building' => $form['building'], 'category_id' => $form['category_id'], 'item_id' => $form['item_id'], 'detail' => $form['detail'], "channel_id" => $form["channel_id"] ?? null, "fileName" => $fileName]) }}">修正</a>
