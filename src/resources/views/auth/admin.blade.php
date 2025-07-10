@@ -21,11 +21,12 @@
             <search class="search__area">
                 <form class="conditions__form" action="/admin" method="get">
                     @csrf
-                    <input type="text" name="keyword" class="keyword__input" placeholder="名前やメールアドレスを入力してください"
+                    <input type="text" name="keyword" class="item__input keyword__input" placeholder="名前やメールアドレスを入力してください"
                         value="{{ $keyword }}" />
                     <div class="gender__select__area">
-                        <select class="gender__select" name="gender" id="select__gender">
+                        <select class="item__select gender__select" name="gender" id="select__gender">
                             <option value="0" @if($gender == '0') selected @endif>性別</option>
+                            <option value="4" @if($gender == '4') selected @endif>全て</option>
                             @foreach(config('gender') as $genderId => $genderName)
                                 <option value="{{ $genderId }}" @if($gender == $genderId) selected @endif>
                                     {{ $genderName }}
@@ -34,7 +35,7 @@
                         </select>
                     </div>
                     <div class="category__select__area">
-                        <select class="category__select" name="category_id" id="select__category-new">
+                        <select class="item__select category__select" name="category_id" id="select__category-new">
                             <option value="0" @if ($category_id == '0' or is_null($category_id)) selected @endif>
                                 お問い合わせの種類
                             </option>
@@ -61,19 +62,20 @@
             <div class="table__area">
                 <table class="searched__list">
                     <tr>
-                        <th>お名前</th>
-                        <th>性別</th>
-                        <th>メールアドレス</th>
-                        <th>お問い合わせの種類</th>
-                        <th></th>
+                        <th class="searched__list__th">お名前</th>
+                        <th class="searched__list__th">性別</th>
+                        <th class="searched__list__th">メールアドレス</th>
+                        <th class="searched__list__th">お問い合わせの種類</th>
+                        <th class="searched__list__th"></th>
                     </tr>
                     @foreach($contacts as $contact)
                         <tr>
-                            <td>{{ $contact->last_name . '　' . $contact->first_name}}</td>
-                            <td>{{ (config('gender')[$contact->gender]) }}</td>
-                            <td>{{ $contact->email }}</td>
-                            <td>{{ $contact->category->content }}</td>
-                            <td><button id="openDetail" class="button__detail" data-modal="{{ $contact->id }}">詳細</button></td>
+                            <td class="searched__list__td">{{ $contact->last_name . '　' . $contact->first_name}}</td>
+                            <td class="searched__list__td">{{ (config('gender')[$contact->gender]) }}</td>
+                            <td class="searched__list__td">{{ $contact->email }}</td>
+                            <td class="searched__list__td">{{ $contact->category->content }}</td>
+                            <td class="searched__list__td"><button id="openDetail" class="button__detail"
+                                    data-modal="{{ $contact->id }}">詳細</button></td>
                         </tr>
                         {{-- モーダルウィンドウここから --}}
                         <div id="{{$contact->id}}" class="modal__area" data-contactId="{{ $contact->id }}">
@@ -83,23 +85,24 @@
                                 </div>
                                 <div class="modal__middle">
                                     <div class="modal__table">
-                                        <dl>
-                                            <dt><label for="kind">お名前</label></dt>
-                                            <dd>{{ $contact->last_name . '　' . $contact->first_name}}</dd>
-                                            <dt><label for="kind">性別</label></dt>
-                                            <dd>{{ (config('gender')[$contact->gender]) }}</dd>
-                                            <dt><label for="kind">メールアドレス</label></dt>
-                                            <dd>{{ $contact->email }}</dd>
-                                            <dt><label for="kind">電話番号</label></dt>
-                                            <dd>{{ $contact->tel }}</dd>
-                                            <dt><label for="kind">住所</label></dt>
-                                            <dd>{{ $contact->address }}</dd>
-                                            <dt><label for="kind">建物名</label></dt>
-                                            <dd>{{ $contact->building }}</dd>
-                                            <dt><label for="kind">お問い合わせの種類</label></dt>
-                                            <dd>{{ $contact->category->content }}</dd>
-                                            <dt><label for="kind">お問い合わせ内容</label></dt>
-                                            <dd>{{ $contact->detail }}</dd>
+                                        <dl class="modal__table__dl">
+                                            <dt class="modal__table__dt"><label for="kind">お名前</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->last_name . '　' . $contact->first_name}}
+                                            </dd>
+                                            <dt class="modal__table__dt"><label for="kind">性別</label></dt>
+                                            <dd class="modal__table__dd">{{ (config('gender')[$contact->gender]) }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">メールアドレス</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->email }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">電話番号</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->tel }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">住所</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->address }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">建物名</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->building }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">お問い合わせの種類</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->category->content }}</dd>
+                                            <dt class="modal__table__dt"><label for="kind">お問い合わせ内容</label></dt>
+                                            <dd class="modal__table__dd">{{ $contact->detail }}</dd>
                                         </dl>
                                     </div>
                                     <div class="delete__button__area">

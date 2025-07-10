@@ -4,21 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Contact extends Model
 {
     use HasFactory;
-    protected $fillable = ['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'];
+    protected $fillable = ['category_id', 'item_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail', 'img_path'];
     public function category()
     {
         return $this->belongsTo('App\Models\Category');
+    }
+    public function item()
+    {
+        return $this->belongsTo('App\Models\Item');
+    }
+    public function channels()
+    {
+        return $this->belongsToMany('App\Models\Channel')->withTimestamps();
     }
     public function scopeKeyWordLike($query, $keyword)
     {
         if (!empty($keyword)) {
             $query
-                ->where('first_name', 'like', '%' . $keyword . '%')
-                ->orWhere('last_name', 'like', '%' . $keyword . '%')
+                ->where(DB::raw("CONCAT(last_name,first_name)"), 'like', '%' . $keyword . '%')
+                ->orWhere(DB::raw("CONCAT(last_name,' ',first_name)"), 'like', '%' . $keyword . '%')
+                ->orWhere(DB::raw("CONCAT(last_name,'　',first_name)"), 'like', '%' . $keyword . '%')
                 ->orWhere('email', 'like', '%' . $keyword . '%')
             ;
         }
@@ -26,7 +36,7 @@ class Contact extends Model
 
     public function scopeGenderEqual($query, $gender)
     {
-        if ($gender != '0' and !empty($gender)) {
+        if ($gender != '0' and $gender != '4' and !empty($gender)) {
             $query->where('gender', '=', $gender);
         }
     }

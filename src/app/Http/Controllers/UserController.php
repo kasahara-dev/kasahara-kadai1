@@ -1,10 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use DateTime;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;

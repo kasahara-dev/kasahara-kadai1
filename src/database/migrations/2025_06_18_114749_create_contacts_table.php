@@ -16,6 +16,7 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('item_id')->nullable()->constrained('items');
             $table->string('first_name', 255);
             $table->string('last_name', 255);
             $table->tinyInteger('gender');
@@ -24,6 +25,7 @@ class CreateContactsTable extends Migration
             $table->string('address', 255);
             $table->string('building', 255)->nullable();
             $table->text('detail');
+            $table->string('img_path', 255)->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

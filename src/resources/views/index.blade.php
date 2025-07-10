@@ -7,7 +7,7 @@
 @section('content')
     <div class="form__area">
         <h1 class="form__title">Contact</h1>
-        <form class="form" action="/confirm" method="get">
+        <form class="form" action="/confirm" method="post" enctype="multipart/form-data">
             @csrf
             <table class="table">
                 <tr>
@@ -88,7 +88,7 @@
                         <div class="tel__item">
                             <input type="text" name="tel1" class="tel__input" placeholder="080" value="{{ old('tel1') }}" />
                             <div class="error tel__error">
-                                @error('tel1'){{ $message }}@enderror
+                                @error('tel1'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                         &emsp;-&emsp;
@@ -96,7 +96,7 @@
                             <input type="text" name="tel2" class="tel__input" placeholder="1234"
                                 value="{{ old('tel2') }}" />
                             <div class="error tel__error">
-                                @error('tel2'){{ $message }}@enderror
+                                @error('tel2'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                         &emsp;-&emsp;
@@ -104,7 +104,7 @@
                             <input type="text" name="tel3" class="tel__input" placeholder="5678"
                                 value="{{ old('tel3') }}" />
                             <div class="error tel__error">
-                                @error('tel3'){{ $message }}@enderror
+                                @error('tel3'){!! nl2br(e($message)) !!}@enderror
                             </div>
                         </div>
                     </td>
@@ -159,14 +159,62 @@
                     </td>
                 </tr>
                 <tr>
+                    <th class="table__item">お問い合わせの商品</th>
+                    <td class="item__group">
+                        <div class="item__item">
+                            <div class="select__wrapper">
+                                <select name="item_id" class="item__select" id="select__item-new">
+                                    <option value=null @if (old('item_id') == null) selected @endif>選択してください</option>
+                                    @foreach ($items as $item)
+                                        <option value="{{ $item->id }}" @if (old('item_id') == $item->id) selected @endif>
+                                            {{ $item->content }}
+                                        </option>
+                                    @endforeach
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="error">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <th class="table__item">お問い合わせ内容<span class="require">※</span></th>
                     <td class="detail__group">
                         <div class="detail__item">
                             <textarea name="detail" class="detail__textarea"
                                 placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
-                            @error('detail')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('detail')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table__item">画像ファイル</th>
+                    <td class="picture__group">
+                        <div class="picture__item">
+                            <label for="picture" id="picture__label" class="picture__label"></label>
+                            <input type="file" name="picture" id="picture" class="picture__input" />
+                        </div>
+                        <div class="error">
+                            @error('picture'){{ $message }}@enderror
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="table__item">どこで知りましたか？</th>
+                    <td class="channel__group">
+                        <div class="channel__item">
+                            @foreach ($channels as $key => $channel)
+                                <div class="channel__each">
+                                    <input class="channel__input" type="checkbox" name="channel_id[{{ $key }}]" id="channel_id[{{ $key }}]"
+                                        value="{{ $channel->id }}" @if (old("channel_id.$key") == $channel->id) checked @endif />
+                                    <label class="channel__label" for="channel_id[{{ $key }}]">{{ $channel->content }}</label>
+                                </div>
+                            @endforeach
                         </div>
                     </td>
                 </tr>

@@ -19,6 +19,7 @@
 <body>
     <header class="wrapper">
         <div class="header">
+            <div></div>
             @section('header')
             <a class="header__logo" href="/">
                 FashionablyLate

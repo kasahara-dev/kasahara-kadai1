@@ -1,5 +1,10 @@
+.form {
+    justify-self: end;
+    align-self: anchor-center;
+}
 /* ログアウトボタン */
 .logout__button {
+    font-family: "Noto Serif", serif;
     display: inline-block;
     text-align: center; /* 文字位置   */
     cursor: pointer; /* カーソル   */
@@ -8,9 +13,6 @@
     color: #d9c6b5; /* 文字色     */
     line-height: 1em; /* 1行の高さ  */
     border: 1px solid #d9c6b5;
-    position: absolute;
-    top: 25%;
-    right: 0;
     font-size: 20px;
 }
 .contents__area {
@@ -22,6 +24,12 @@
 .conditions__area {
     display: flex;
 }
+.item__input {
+    background: #f4f4f4;
+    outline: none;
+    font-family: "Noto Serif", serif;
+    color: #8b7969;
+}
 .keyword__input {
     height: 40px;
     width: 300px;
@@ -29,6 +37,15 @@
     border: 1px solid #e3ded9;
 }
 /* 性別 */
+.item__select {
+    font-family: "Noto Serif", serif;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #f4f4f4;
+    outline: none;
+    border: none;
+    color: #8b7969;
+}
 .gender__select__area {
     height: 40px;
     box-sizing: border-box;
@@ -81,11 +98,14 @@
 }
 /* 日付検索 */
 .date__input {
+    background: #f4f4f4;
     width: 150px;
     height: 40px;
     padding: 10px;
     border: 1px solid #e3ded9;
     position: relative;
+    font-family: "Noto Serif", serif;
+    color: #8b7969;
 }
 .date__input::-webkit-calendar-picker-indicator {
     position: absolute;
@@ -126,6 +146,7 @@
     color: #ffffff; /* 文字色     */
     line-height: 1em; /* 1行の高さ  */
     border: none;
+    font-family: "Noto Serif", serif;
 }
 /* 検索結果ヘッダー */
 .searched__option {
@@ -142,6 +163,7 @@
     border: none;
     padding: 10px 30px;
     cursor: pointer;
+    font-family: "Noto Serif", serif;
 }
 /* 検索結果 */
 .pages {
@@ -160,18 +182,20 @@
     padding-bottom: 50px;
 }
 .searched__list {
+    font-family: "Noto Serif", serif;
+    color: #8b7969;
     width: 1000px;
     border: solid 1px #e0dfde;
     border-collapse: collapse; /* 枠線を重ねない */
 }
-.searched__list th {
+.searched__list__th {
     background-color: #8b7969;
     color: white;
     height: 50px;
     text-align: start;
     padding: 0 20px;
 }
-.searched__list td {
+.searched__list__td {
     border-bottom: #8b7969;
     height: 60px;
     padding: 0 20px;
@@ -182,6 +206,7 @@
     border: 1px solid #d9c6b599;
     color: #d9c6b5;
     background-color: #f4f4f44d;
+    font-family: "Noto Serif", serif;
     cursor: pointer;
 }
 /* モーダルウィンドウ */
@@ -246,17 +271,17 @@
     display: flex;
     padding: 0 30px;
 }
-.modal__table dl {
+.modal__table__dl {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
-.modal__table dt {
+.modal__table__dt {
     font-weight: bold;
     width: 30%;
     min-height: 50px;
 }
-.modal__table dd {
+.modal__table__dd {
     margin: 0;
     width: 65%;
     padding-left: 5%;
@@ -357,4 +382,8 @@
 .pagination-sm .page-item:last-child .page-link {
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
+}
+.page-link,
+.page-link:visited {
+    color: #8b7969;
 }

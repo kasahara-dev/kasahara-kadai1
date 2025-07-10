@@ -1,16 +1,4 @@
-table {
-    border: 1px solid #bba99a;
-}
-th {
-    background-color: #bba99a;
-    border-bottom: 1px solid white;
-    color: white;
-    padding: 10px 20px;
-    width: 300px;
-    height: 35px;
-    text-align: justify;
-}
-td {
+.table__td {
     border-bottom: 1px solid #bba99a; /* 枠線の太さ、種類、色 */
     padding: 10px 20px;
     word-break: break-all;
@@ -22,12 +10,36 @@ td {
     align-items: center;
 }
 .table__area {
+    border: 1px solid #bba99a;
     border-collapse: collapse; /* 枠線を重ねない */
     width: 800px;
     margin: 10px auto;
 }
+.table__th {
+    background-color: #bba99a;
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    width: 300px;
+    height: 35px;
+    text-align: justify;
+}
 .detail__th {
     min-height: 50px;
+}
+.channel__group {
+    display: flex;
+    height: 35px;
+    flex-direction: row;
+    align-items: center;
+}
+.channel__item {
+    margin-right: 5px;
+}
+.picture__img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
 }
 .button__area {
     display: flex;
@@ -35,4 +47,8 @@ td {
     width: 200px;
     justify-content: space-evenly;
     align-items: center;
+}
+.link__back,
+.link__back:visited {
+    color: #8b7969;
 }

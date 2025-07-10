@@ -19,12 +19,12 @@
                 @csrf
                 <dl>
                     <div class="item">
-                        <dt>
+                        <dt class="item__dt">
                             <label for="kind">メールアドレス</label>
                         </dt>
-                        <dd class="email__group">
+                        <dd class="item__dd email__group">
                             <div class="email__item">
-                                <input type="text" name="email" placeholder="例：test@example.com"
+                                <input type="text" class="item__input" name="email" placeholder="例：test@example.com"
                                     value="{{ old('email') }}" />
                                 <div class="error email__error">
                                     @error('email')
@@ -37,12 +37,12 @@
                 </dl>
                 <dl>
                     <div class="item">
-                        <dt>
+                        <dt class="item__dt">
                             <label for="kind">パスワード</label>
                         </dt>
-                        <dd class="password__group">
+                        <dd class="item__dd password__group">
                             <div class="password__item">
-                                <input type="text" name="password" placeholder="例：coachtech1106"
+                                <input type="text" name="password" class="item__input" placeholder="例：coachtech1106"
                                     value="{{ old('password') }}" />
                                 @error('password')
                                     <div class="error">{{ $message }}</div>

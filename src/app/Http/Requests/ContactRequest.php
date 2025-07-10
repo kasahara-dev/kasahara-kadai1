@@ -33,7 +33,8 @@ class ContactRequest extends FormRequest
             'tel3' => ['required', 'digits_between:1,5'],
             'address' => 'required',
             'category_id' => 'required',
-            'detail' => ['required', 'max:120']
+            'detail' => ['required', 'max:120'],
+            'picture' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2024']
         ];
     }
     public function messages()
@@ -45,15 +46,18 @@ class ContactRequest extends FormRequest
             'email.required' => 'メールアドレスを入力してください',
             'email.email' => 'メールアドレスはメール形式で入力してください',
             'tel1.required' => '電話番号を入力してください',
-            'tel1.digits_between' => "電話番号は5桁までの数字で入力してください",
+            'tel1.digits_between' => "電話番号は5桁までの数字で\n入力してください",
             'tel2.required' => '電話番号を入力してください',
-            'tel2.digits_between' => '電話番号は5桁までの数字で入力してください',
+            'tel2.digits_between' => "電話番号は5桁までの数字で\n入力してください",
             'tel3.required' => '電話番号を入力してください',
-            'tel3.digits_between' => '電話番号は5桁までの数字で入力してください',
+            'tel3.digits_between' => "電話番号は5桁までの数字で\n入力してください",
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を入力してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
-            'detail.max' => 'お問合せ内容は120文字以内で入力してください'
+            'detail.max' => 'お問合せ内容は120文字以内で入力してください',
+            'picture.image' => '2MBまでの画像ファイルのみ選択できます',
+            'picture.mimes' => '2MBまでの画像ファイルのみ選択できます',
+            'picture.max' => '2MBまでの画像ファイルのみ選択できます'
         ];
     }
 }
