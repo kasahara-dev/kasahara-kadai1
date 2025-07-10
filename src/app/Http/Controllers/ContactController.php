@@ -50,14 +50,17 @@ class ContactController extends Controller
             $path = Storage::disk('public')->putFileAs('', $file, $fileName);
             $url = Storage::disk('public')->url($path);
         } else {
+            $fileName = "";
             $url = null;
         }
-        return view('confirm', compact('form', 'url'));
+        return view('confirm', compact('form', 'url', 'fileName'));
     }
     public function completed(Request $request)
     {
         $form = $request->all();
-        session()->flash('_old_input', ['first_name' => $form["first_name"], 'last_name' => $form["last_name"], 'tel1' => $form["tel1"], 'tel2' => $form["tel2"], 'tel3' => $form["tel3"], 'email' => $form["email"], 'category_id' => $form["category_id"], 'item_id' => $form["item_id"] ?? null, 'address' => $form["address"], 'building' => $form["building"] ?? null, 'detail' => $form["detail"], "channel_id" => $form["channel_id"] ?? null, $form["picture"] ?? null]);
+        // 画像削除
+        Storage::disk('public')->delete($form["fileName"]);
+        session()->flash('_old_input', ['first_name' => $form["first_name"], 'last_name' => $form["last_name"], 'tel1' => $form["tel1"], 'tel2' => $form["tel2"], 'tel3' => $form["tel3"], 'email' => $form["email"], 'category_id' => $form["category_id"], 'item_id' => $form["item_id"] ?? null, 'address' => $form["address"], 'building' => $form["building"] ?? null, 'detail' => $form["detail"], "channel_id" => $form["channel_id"] ?? null]);
         return redirect('/');
     }
     public function complete(Request $request)

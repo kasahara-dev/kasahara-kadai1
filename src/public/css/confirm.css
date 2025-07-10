@@ -27,6 +27,11 @@
 .detail__th {
     min-height: 50px;
 }
+.picture__img {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
 .button__area {
     display: flex;
     margin: 20px auto;

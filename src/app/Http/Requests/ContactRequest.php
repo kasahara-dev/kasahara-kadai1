@@ -34,7 +34,7 @@ class ContactRequest extends FormRequest
             'address' => 'required',
             'category_id' => 'required',
             'detail' => ['required', 'max:120'],
-            'picture' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
+            'picture' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2024']
         ];
     }
     public function messages()

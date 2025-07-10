@@ -194,7 +194,7 @@
                     <th class="picture__item">画像ファイル</th>
                     <td class="picture__group">
                         <div class="picture__item">
-                            <input type="file" name="picture" class="picture__input" value="{{ old('picture') }}" />
+                            <input type="file" name="picture" class="picture__input" />
                         </div>
                         <div class="error">
                             @error('picture'){{ $message }}@enderror
