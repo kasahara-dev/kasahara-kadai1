@@ -184,17 +184,20 @@
                         <div class="detail__item">
                             <textarea name="detail" class="detail__textarea"
                                 placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
-                            @error('detail')
-                                <div class="error">{{ $message }}</div>
-                            @enderror
+                            <div class="error">
+                                @error('detail')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <th class="picture__item">画像ファイル</th>
+                    <th class="table__item">画像ファイル</th>
                     <td class="picture__group">
                         <div class="picture__item">
-                            <input type="file" name="picture" class="picture__input" />
+                            <label for="picture" id="picture__label" class="picture__label"></label>
+                            <input type="file" name="picture" id="picture" class="picture__input" />
                         </div>
                         <div class="error">
                             @error('picture'){{ $message }}@enderror
@@ -205,11 +208,12 @@
                     <th class="table__item">どこで知りましたか？</th>
                     <td class="channel__group">
                         <div class="channel__item">
-                            <!-- <input type="hidden" name="channel[]" value="0" /> -->
                             @foreach ($channels as $key => $channel)
-                                <input type="checkbox" name="channel_id[{{ $key }}]" id="channel_id[{{ $key }}]"
-                                    value="{{ $channel->id }}" @if (old("channel_id.$key") == $channel->id) checked @endif />
-                                <label for="channel_id[{{ $key }}]">{{ $channel->content }}</label>
+                                <div class="channel__each">
+                                    <input class="channel__input" type="checkbox" name="channel_id[{{ $key }}]" id="channel_id[{{ $key }}]"
+                                        value="{{ $channel->id }}" @if (old("channel_id.$key") == $channel->id) checked @endif />
+                                    <label class="channel__label" for="channel_id[{{ $key }}]">{{ $channel->content }}</label>
+                                </div>
                             @endforeach
                         </div>
                     </td>

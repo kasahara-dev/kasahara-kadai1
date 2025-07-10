@@ -277,6 +277,9 @@
     pointer-events: none;
 }
 /* お問い合わせ内容 */
+.detail__item {
+    height: 150px;
+}
 .detail__textarea {
     background: #f4f4f4;
     outline: none;
@@ -288,6 +291,59 @@
     padding: 10px 30px;
     font-family: "Noto Serif", serif;
     color: #8b7969;
+}
+/* 画像ファイル */
+.picture__group {
+    vertical-align: baseline;
+}
+.picture__label {
+}
+.picture__input {
+    font-family: "Noto Serif", serif;
+}
+/* どこで知りましたか */
+.channel__group {
+    vertical-align: baseline;
+}
+.channel__item {
+    display: flex;
+}
+.channel__each {
+    margin-right: 20px;
+}
+.channel__input {
+    appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #8b7969;
+    border-radius: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.channel__input:checked {
+    background-color: #8b7969;
+}
+.channel__input:checked::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    width: 12px;
+    height: 6px;
+    border-bottom: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    transform: rotate(-45deg);
+}
+.channel__label {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+    line-height: 1;
+    cursor: pointer;
+}
+.channel__label:not(:last-of-type) {
+    margin-right: 16px;
 }
 /* ボタン */
 .button__area {

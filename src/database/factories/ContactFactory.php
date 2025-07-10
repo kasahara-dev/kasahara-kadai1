@@ -5,8 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Category;
 use App\Models\Item;
-use App\Models\Channel;
-
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
+use Storage;
 
 class ContactFactory extends Factory
 {
@@ -19,8 +20,15 @@ class ContactFactory extends Factory
     {
         $categories = Category::pluck('id')->all();
         $items = Item::pluck('id')->all();
-        $channels = Channel::pluck('id')->all();
         array_push($items, null);
+        // 画像ファイル生成
+        if (mt_rand(1, 100) <= 50) {
+            $fileName = Str::uuid() . '.jpg';
+            $file = UploadedFile::fake()->image('img.jpg', 200, 100)->size(1000);
+            $path = Storage::disk('public')->putFileAs('', $file, $fileName);
+        } else {
+            $fileName = null;
+        }
         return [
             'category_id' => $categories[array_rand($categories)],
             'item_id' => $items[array_rand($items)],
@@ -31,7 +39,8 @@ class ContactFactory extends Factory
             'tel' => str_replace('-', '', $this->faker->phoneNumber()),
             'address' => $this->faker->streetAddress(),
             'building' => $this->faker->optional()->secondaryAddress,
-            'detail' => $this->faker->realText(rand(10, 120))
+            'detail' => $this->faker->realText(rand(10, 120)),
+            'img_path' => $fileName ?? null,
         ];
     }
 }
