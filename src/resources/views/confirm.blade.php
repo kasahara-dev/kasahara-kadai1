@@ -132,7 +132,7 @@
                     @endforeach
                 @endif
                 @if(isset($fileName) and $fileName != null)
-                    <input type="hidden" name="img_path" value="{{ $fileName }}" />
+                    <input type="hidden" name="img_path" value="contact/{{ $fileName }}" />
                 @endif
                 <button type="submit" class="submit__button" name="send">送信</button>
                 <a class="link__back" name="revise"

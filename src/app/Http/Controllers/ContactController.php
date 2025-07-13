@@ -47,7 +47,7 @@ class ContactController extends Controller
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $fileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
-            $path = Storage::disk('public')->putFileAs('', $file, $fileName);
+            $path = Storage::disk('public')->putFileAs('contact', $file, $fileName);
             $url = Storage::disk('public')->url($path);
         } else {
             $fileName = "";
@@ -59,7 +59,7 @@ class ContactController extends Controller
     {
         $form = $request->all();
         // 画像削除
-        Storage::disk('public')->delete($form["fileName"]);
+        Storage::disk('public')->delete('contact/' . $form["fileName"]);
         session()->flash('_old_input', ['first_name' => $form["first_name"], 'last_name' => $form["last_name"], 'tel1' => $form["tel1"], 'tel2' => $form["tel2"], 'tel3' => $form["tel3"], 'email' => $form["email"], 'category_id' => $form["category_id"], 'item_id' => $form["item_id"] ?? null, 'address' => $form["address"], 'building' => $form["building"] ?? null, 'detail' => $form["detail"], "channel_id" => $form["channel_id"] ?? null]);
         return redirect('/');
     }
