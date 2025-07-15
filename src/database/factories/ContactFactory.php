@@ -25,9 +25,10 @@ class ContactFactory extends Factory
         if (mt_rand(1, 100) <= 50) {
             $fileName = Str::uuid() . '.jpg';
             $file = UploadedFile::fake()->image('img.jpg', 200, 100)->size(1000);
-            $path = Storage::disk('public')->putFileAs('', $file, $fileName);
+            $path = Storage::disk('public')->putFileAs('contact', $file, $fileName);
+            $filePath = 'contact/' . $fileName;
         } else {
-            $fileName = null;
+            $filePath = null;
         }
         return [
             'category_id' => $categories[array_rand($categories)],
@@ -40,7 +41,7 @@ class ContactFactory extends Factory
             'address' => $this->faker->streetAddress(),
             'building' => $this->faker->optional()->secondaryAddress,
             'detail' => $this->faker->realText(rand(10, 120)),
-            'img_path' => $fileName ?? null,
+            'img_path' => $filePath ?? null,
         ];
     }
 }

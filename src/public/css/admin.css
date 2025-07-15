@@ -15,10 +15,27 @@
     border: 1px solid #d9c6b5;
     font-size: 20px;
 }
+.profile__dl {
+}
+.profile__line {
+    display: flex;
+}
+.profile__dt {
+    font-weight: bold;
+    width: 55px;
+}
+.profile__dd {
+    margin: 0;
+}
 .contents__area {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.title__area {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    justify-content: center;
 }
 /* 検索エリア */
 .conditions__area {
