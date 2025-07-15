@@ -5,12 +5,16 @@ use DateTime;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\Response;
+use App\Http\Requests\ProfileRequest;
 
 class UserController extends Controller
 {
     public function admin(Request $request)
     {
+        $profile = auth()->user()->profile;
         $categories = Category::all();
         $keyword = null;
         $gender = 0;
@@ -74,7 +78,7 @@ class UserController extends Controller
             return Response::make($csv, 200, $headers);
         } else {
             $contacts = $contacts->paginate(7);
-            return view('.auth.admin', compact('categories', 'contacts', 'keyword', 'gender', 'category_id', 'date'));
+            return view('.auth.admin', compact('categories', 'contacts', 'keyword', 'gender', 'category_id', 'date', 'profile'));
         }
     }
     public function delete(Request $request)
@@ -83,4 +87,16 @@ class UserController extends Controller
         return redirect("admin")->withInput();
 
     }
+    public function profileShow()
+    {
+        return view('auth.profile');
+    }
+    public function profileInput(ProfileRequest $request)
+    {
+        $form = $request->all();
+        $form = $form + array("user_id" => auth()->id());
+        Profile::create($form);
+        return redirect("admin");
+    }
+
 }

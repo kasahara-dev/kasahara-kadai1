@@ -22,4 +22,7 @@ Route::post('/thanks', [ContactController::class, 'complete']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [UserController::class, 'admin']);
     Route::post('/admin', [UserController::class, 'delete']);
+    Route::get('/profile', [UserController::class, 'profileShow']);
+    Route::post('/profile', [UserController::class, 'profileInput']);
+
 });

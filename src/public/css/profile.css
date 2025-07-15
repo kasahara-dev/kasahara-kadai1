@@ -1,0 +1,145 @@
+.form {
+    justify-self: end;
+    align-self: anchor-center;
+}
+/* ログアウトボタン */
+.logout__button {
+    font-family: "Noto Serif", serif;
+    display: inline-block;
+    text-align: center; /* 文字位置   */
+    cursor: pointer; /* カーソル   */
+    padding: 0.5em 1.5em; /* 余白       */
+    background: #f0f0f099; /* 背景色     */
+    color: #d9c6b5; /* 文字色     */
+    line-height: 1em; /* 1行の高さ  */
+    border: 1px solid #d9c6b5;
+    font-size: 20px;
+}
+.contents__form {
+    padding: 30px;
+}
+.form__area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2ece7;
+    padding-bottom: 50px;
+}
+.box__area {
+    width: 500px;
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #c5b9b0;
+}
+.item {
+    height: 100px;
+    text-align: start;
+    vertical-align: top;
+}
+.item__dt {
+    font-weight: bold;
+}
+.item__dd {
+    width: 130px;
+    margin-left: 0;
+}
+/* 性別 */
+.gender__radios {
+    display: flex;
+}
+.gender__th {
+}
+.gender__group {
+    display: flex;
+    height: 60px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    vertical-align: top;
+}
+.gender__item {
+    display: flex;
+    margin-right: 50px;
+}
+.gender__label {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+    line-height: 1;
+    cursor: pointer;
+}
+.gender__label:not(:last-of-type) {
+    margin-right: 16px;
+}
+.gender__radio {
+    appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #8b7b68;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.gender__radio:checked {
+    background-color: #dddddd;
+}
+
+.gender__radio:checked::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    border-radius: 9999px;
+    background-color: #8b7b68;
+}
+.gender__tr {
+    height: 1em;
+}
+.gender__error {
+    display: flex;
+    align-items: flex-end;
+}
+/* 誕生日入力 */
+.date__input {
+    background: #f4f4f4;
+    width: 150px;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid #e3ded9;
+    position: relative;
+    font-family: "Noto Serif", serif;
+    color: #8b7969;
+}
+.date__input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background: transparent;
+    z-index: 1;
+}
+.date__input::after {
+    content: "";
+    position: absolute;
+    transform: scale(0.5, 1);
+    top: 15px;
+    right: 12px;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #e0dfde;
+    border-bottom: 0;
+    pointer-events: none;
+}
+.birthday__error {
+}
+/* ボタン */
+.button__area {
+    display: flex;
+    justify-content: space-around;
+}

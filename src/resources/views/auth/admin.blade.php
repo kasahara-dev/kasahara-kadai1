@@ -15,7 +15,38 @@
 @section('content')
     <div class="contents__area">
         <div class="title__area">
+            <div></div>
             <h1 class="form__title">Admin</h1>
+            <div>
+                <dl class="profile__dl">
+                    <div class="profile__line">
+                        <dt class="profile__dt">名前</dt>
+                        <dd class="profile__dd">
+                            {{ auth()->user()->name }}
+                        </dd>
+                    </div>
+                    <div class="profile__line">
+                        <dt class="profile__dt">性別</dt>
+                        <dd class="profile__dd">
+                            @if (isset($profile))
+                                {{ config('gender')[$profile->gender] }}
+                            @else
+                                未登録
+                            @endif
+                        </dd>
+                    </div>
+                    <div class="profile__line">
+                        <dt class="profile__dt">誕生日</dt>
+                        <dd class="profile__dd">
+                            @if (isset($profile))
+                                {{ date('Y年n月j日', strtotime($profile->birthday)) }}
+                            @else
+                                未登録
+                            @endif
+                        </dd>
+                    </div>
+                </dl>
+            </div>
         </div>
         <div class="conditions__area">
             <search class="search__area">

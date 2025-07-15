@@ -62,7 +62,7 @@
     position: relative;
     width: 20px;
     height: 20px;
-    /* border: 1px solid #06b6d4; */
+    border: 1px solid #8b7b68;
     border-radius: 9999px;
     cursor: pointer;
 }
