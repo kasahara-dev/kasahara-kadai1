@@ -157,7 +157,7 @@ return [
         // ]),
     ],
     'redirects' => [
-        'logout' => '/login', // ログアウト後に/loginにリダイレクト
+        // 'logout' => '/login', // ログアウト後に/loginにリダイレクト
         ''
     ],
 ];

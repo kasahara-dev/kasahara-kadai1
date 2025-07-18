@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravel\Fortify\Contracts\LogoutResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -21,12 +22,12 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
-        //     public function toResponse($request)
-        //     {
-        //         return redirect('/login');
-        //     }
-        // });
+        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
+            public function toResponse($request)
+            {
+                return redirect('/login');
+            }
+        });
         $this->app->instance(RegisterResponse::class, new class implements RegisterResponse {
             public function toResponse($request)
             {
