@@ -4,8 +4,11 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Storage;
 use Tests\TestCase;
 use App\Models\Category;
+use App\Models\Item;
+use App\Models\Channel;
 use Illuminate\Validation\ValidationException;
 use Faker\Factory;
 use Illuminate\Http\UploadedFile;
@@ -81,6 +84,73 @@ class ContactTest extends TestCase
         $response = $this->post('/confirm', ['picture' => $bigPicture]);
         $response->assertSessionHasErrors([
             'picture' => '2MBまでの画像ファイルのみ選択できます',
+        ]);
+    }
+    public function test_confirm()
+    {
+        $faker = Factory::create('ja_JP');
+        $tel = $faker->phoneNumber();
+        Storage::fake('public');
+        $file = UploadedFile::fake()->create('contactTest.jpg', 100, 'image/jpeg');
+        // $fileName = 'contactTest.jpg';
+        // $path = Storage::disk('public')->putFileAs('contact', $file, $fileName);
+        // $url = Storage::disk('public')->url($path);
+        $response = $this->post('/confirm', [
+            'last_name' => '山田',
+            'first_name' => '太郎',
+            'gender' => '2',
+            'email' => 'test@example.com',
+            'tel1' => '0120',
+            'tel2' => '1234',
+            'tel3' => '5678',
+            'address' => '東京都新宿区',
+            'building' => 'テストビル',
+            'category_id' => '3',
+            'item_id' => '1',
+            'detail' => 'テスト文章',
+            'picture' => $file,
+            'channel_id' => ['1', '2', '3', '4', '5'],
+        ]);
+        $response->assertViewIs('confirm');
+        $response->assertSeeInOrder(['山田', '太郎', '女性', 'test@example.com', '0120', '1234', '5678', '東京都新宿区', 'テストビル', '商品トラブル', '商品A', 'テスト文章', '自社サイト', '検索エンジン', 'SNS', 'テレビ・新聞', '友人・知人']);
+        $this->assertCount(1, Storage::disk('public')->files('contact'));
+    }
+    public function test_thanks()
+    {
+        $faker = Factory::create('ja_JP');
+        $tel = $faker->phoneNumber();
+        Storage::fake('public');
+        $file = UploadedFile::fake()->create('contactTest.jpg', 100, 'image/jpeg');
+        $fileName = 'contactTest.jpg';
+        $path = Storage::disk('public')->putFileAs('contact', $file, $fileName);
+        $url = Storage::disk('public')->url($path);
+        $response = $this->post('/thanks', [
+            'last_name' => '山田',
+            'first_name' => '太郎',
+            'gender' => '1',
+            'email' => 'test@example.com',
+            'tel' => '012012345678',
+            'address' => '東京都新宿区',
+            'building' => '東京ビル',
+            'category_id' => '2',
+            'item_id' => '3',
+            'detail' => 'テスト文章',
+            'img_path' => 'contact/contactTest.jpg',
+            "channel_id[]" => ['1', '2', '3', '4', '5']
+        ]);
+        $response->assertViewIs('thanks');
+        $this->assertDatabaseHas('contacts', [
+            'last_name' => '山田',
+            'first_name' => '太郎',
+            'gender' => '1',
+            'email' => 'test@example.com',
+            'tel' => '012012345678',
+            'address' => '東京都新宿区',
+            'building' => '東京ビル',
+            'category_id' => '2',
+            'item_id' => '3',
+            'detail' => 'テスト文章',
+            'img_path' => 'contact/contactTest.jpg',
         ]);
     }
 }
