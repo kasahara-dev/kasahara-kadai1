@@ -13,11 +13,12 @@ use App\Models\Channel;
 use Illuminate\Validation\ValidationException;
 use Faker\Factory;
 use Illuminate\Http\UploadedFile;
-
+use Database\Seeders\TestSeeder;
 
 class ContactTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
+    protected string $seeder = TestSeeder::class;
     /**
      * A basic feature test example.
      *
@@ -25,7 +26,6 @@ class ContactTest extends TestCase
      */
     public function test_contact()
     {
-        // $this->seed();
         $this->assertTrue(true);
         $this->withoutExceptionHandling();
         $response = $this->get('/');
@@ -43,7 +43,6 @@ class ContactTest extends TestCase
     public function test_validation_error()
     {
         // 未入力
-        // $this->seed();
         $response = $this->post('/confirm', []);
         $response->assertSessionHasErrors([
             'first_name' => '名を入力してください',
@@ -92,14 +91,10 @@ class ContactTest extends TestCase
     }
     public function test_confirm()
     {
-        // $this->seed();
         $faker = Factory::create('ja_JP');
         $tel = $faker->phoneNumber();
         Storage::fake('public');
         $file = UploadedFile::fake()->create('contactTest.jpg', 100, 'image/jpeg');
-        // $fileName = 'contactTest.jpg';
-        // $path = Storage::disk('public')->putFileAs('contact', $file, $fileName);
-        // $url = Storage::disk('public')->url($path);
         $response = $this->post('/confirm', [
             'last_name' => '山田',
             'first_name' => '太郎',
@@ -122,7 +117,6 @@ class ContactTest extends TestCase
     }
     public function test_thanks()
     {
-        // $this->seed();
         $faker = Factory::create('ja_JP');
         $tel = $faker->phoneNumber();
         Storage::fake('public');
@@ -158,26 +152,26 @@ class ContactTest extends TestCase
             'detail' => 'テスト文章',
             'img_path' => 'contact/contactTest.jpg',
         ]);
-        $maxContactId = Contact::max('id');
+        // $maxContactId = Contact::max('id');
         $this->assertDatabaseHas('channel_contact', [
             'channel_id' => '1',
-            'contact_id' => $maxContactId,
+            'contact_id' => '1',
         ]);
         $this->assertDatabaseHas('channel_contact', [
             'channel_id' => '2',
-            'contact_id' => $maxContactId,
+            'contact_id' => '1',
         ]);
         $this->assertDatabaseHas('channel_contact', [
             'channel_id' => '3',
-            'contact_id' => $maxContactId,
+            'contact_id' => '1',
         ]);
         $this->assertDatabaseHas('channel_contact', [
             'channel_id' => '4',
-            'contact_id' => $maxContactId,
+            'contact_id' => '1',
         ]);
         $this->assertDatabaseHas('channel_contact', [
             'channel_id' => '5',
-            'contact_id' => $maxContactId,
+            'contact_id' => '1',
         ]);
     }
 }
